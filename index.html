@@ -98,78 +98,52 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4">
-                <img src="images/bike.JPG" height="500" width="455">
+    <input type="number" id="in_amnt" class="container form-control" placeholder="Enter Amount" style="max-width: 250px;"/>
+    <hr>
+    <div class=" container row">
+        <!-- PAYE -->
+        <div class="col-4">
+        
+        <!-- <input type="number" id="paye_amnt"  placeholder="Enter Amount for PAYE" /> -->
+        <button class="btn btn-outline-info" id="paye_go" onclick="calc_paye()">Get PAYE</button>
 
-            </div>
-            <div class="col-8">
-                <div class="ig-container">
-                    <img src="images/gh_flag.jpg" height="500" width="880">
-
-                    <div class="top">
-                            <nav class="navbar navbar-expand-lg py-3">
-                                                                        
-                                        <div id="navbarSupportedContent" class="collapse navbar-collapse navbar-brand text-uppercase font-weight-bold">
-                                            <ul class="navbar-nav ml-auto">
-                                                <li class="nav-item active"><a href="#" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
-                                                <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">About</a></li>
-                                                <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Gallery</a></li>
-                                                <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Portfolio</a></li>
-                                                <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
-                                            </ul>
-                                        </div>
-                                   
-                                </nav>
-                                 </div>
-
-                    <div class="centered">
-                        <div class="title">
-                            GHANA GETS REAL
-                        </div>
-                        <hr style="size: 2pt;">
-
-                    </div>
-
-                    </div>
-
-
-                </div>
+        <div class="jumbotron">
+            <div class="row">
+            PAYE Payable: 
+            <h5 disabled="" id="paye_out"> </h5>
             </div>
             
+            </div>
+        </div>
+        
+        <!-- VAT-->
+        <div class="col-4">
+       
+        <!-- <input type="number" id="vat_amnt" placeholder="Enter Amount for VAT" /> -->
+        <button class="btn btn-outline-info" id="vat_go" onclick="calc_vat()">Get VAT</button>
+
+        <div class="jumbotron">
             <div class="row">
-                <div class="row_card_hor">
-
-                    <div class="card_les">
-                       <img src="images/inhands.JPG" height="300" width="455"> 
-                    </div>
-                    
-        <div class="card_les">
-                       <img src="images/beans.JPG" height="300" width="455"> 
-                    </div>
-        
-                    <div class="card_les">
-                       <img src="images/1.JPG" height="300" width="455"> 
-                    </div>
-        
-                    <div class="card_les">
-                       <img src="images/gh_street.JPG" height="300" width="455"> 
-                    </div>
-        
-        <div class="card_les">
-                       <img src="images/cart.JPG" height="300" width="455"> 
-                    </div>
-        
-        
-        
-                </div>
-        
+            VAT Payable: 
+            <h5 disabled="" id="vat_out"> </h5>
             </div>
-
+            
             </div>
+        </div>
         
-    
+        <!-- With holding-->
+        <div class="col-4">
+        
+        <!-- <input type="number" id="wh_amnt" placeholder="Enter Amount for WithHolding" /> -->
+        <button class="btn btn-outline-info" id="wh_Go">Get WithHolding</button>
+         
+        </div>
+        
+        </div>
+        
+        
+        
+        
 
 
 </body>
