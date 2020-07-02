@@ -44,7 +44,7 @@ else{
 
 
 // alert(c_tax);
-document.getElementById("paye_out").innerHTML=c_tax; 
+document.getElementById("paye_out").innerHTML=c_tax.toFixed(2); 
 }
 
  function VAT(amnt){
@@ -57,9 +57,13 @@ document.getElementById("paye_out").innerHTML=c_tax;
      //no flat
           my_vat = (amnt+nhil);
           console.log(my_vat);
+          if (document.getElementById('cst').checked) {
+            var cst= amnt*.09;
+            my_vat+=cst;
+        }
           my_vat *=0.125;
           console.log(my_vat);
-     document.getElementById("vat_out").innerHTML=my_vat; 
+     document.getElementById("vat_out").innerHTML=my_vat.toFixed(2); 
      
 
 
