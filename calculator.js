@@ -73,7 +73,7 @@ document.getElementById("paye_out").value=c_tax.toFixed(2);
 //  }
 
 //calculate CST
-function cst(amnt){
+function CST(amnt){
 
     amnt=parseFloat(amnt);
     result=amnt*.09;
@@ -91,21 +91,54 @@ function flat(amnt){
     amnt=parseFloat(amnt);
     result=amnt*.03;
     result=result.toFixed(2)
-
+console.log(result);
     document.getElementById("vat_p_flat").value=result;
 return result;
 
 }
 
+//calculate vat on sales
 function v_sales(amnt){
 
     amnt=parseFloat(amnt);
 
  nhil= amnt*.025;
+ document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
+  document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
+
+ nhil+=nhil;
+ amnt+=nhil;
+ console.log("the one:"+amnt);
+ if(document.getElementById("cst_in").value!=""){
+     var cst=document.getElementById("cst_in").value;
+     cst= CST(cst);
+     cst=parseFloat(cst);
+     amnt+=cst;
+     console.log("that one:"+amnt);
+ }
+
+ result=amnt*.125;
+ console.log("this one:"+result);
+result=result.toFixed(2);
+document.getElementById("vat_s_vat").value=result;
+ return result;
+}
+
+
+//calculate vat on purchases
+function v_purchases(amnt){
+    amnt=parseFloat(amnt);
+
+ nhil= amnt*.025;
+ document.getElementById("vat_p_nhil").value=nhil.toFixed(2);
+  document.getElementById("vat_p_getfunds").value=nhil.toFixed(2);
  nhil*=2;
  amnt+=nhil;
- result=amnt*.125;
 
+ result=amnt*.125;
+ result=result.toFixed(2);
+document.getElementById("vat_p_vat").value=result;
+return result;
 }
 
 
@@ -120,7 +153,34 @@ function calc_paye(){
 
 
     function calc_vat(){
-        var in_amnt= document.getElementById("in_amnt").value;
-        // console.log(in_amnt);
-        VAT(in_amnt);
+
+        var sales_v= document.getElementById("sales_in").value;
+        sales_v=v_sales(sales_v);
+        sales_v=parseFloat(sales_v);
+
+        var purchase_v= document.getElementById("purchase_in").value;
+        purchase_v=v_purchases(purchase_v);
+        purchase_v=parseFloat(purchase_v);
+
+        if(document.getElementById("flat_in").value!=""){
+           var flat_p= document.getElementById("flat_in").value;
+        flat_p=flat(flat_p);
+        flat_p=parseFloat(flat_p);
+
+        purchase_v+=flat_p;  
+        console.log(purchase_v);
+        }
+
+var payable = sales_v - purchase_v;
+
+document.getElementById("vat_payable").innerHTML=payable.toFixed(2);
+document.getElementById("vat_s_out").value=sales_v;
+document.getElementById("vat_p_out").value=purchase_v.toFixed(2);
+
+       console.log("payable:" +payable.toFixed(2));
+       console.log("sales:"+sale_v.toFixed(2));
+       console.log("purchase:"+purchase_v);
+
+
+
         }

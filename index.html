@@ -158,19 +158,22 @@
             <div class="card-body">
               <h6 class="card-title"><p> Value of Supply</h6><hr>
                 
-              <input type="number" id="paye_in" class="form-control" placeholder="Goods/Services">
+              <input type="number" id="sales_in" class="form-control" placeholder="Goods/Services">
               <br>
-               <input type="number" title="Communication Service Tax" id="paye_in" class="form-control" placeholder="Communication Service Tax">
+               <input type="number" title="Communication Service Tax" id="cst_in" class="form-control" placeholder="Communication Service Tax">
 <hr>
               <h6 class="card-title"><p> Value of Purchases</h6><hr>
                
-              <input type="number" id="paye_in" class="form-control" placeholder="Standard Rate">
+              <input type="number" id="purchase_in" class="form-control" placeholder="Standard Rate">
               <br>
-               <input type="number" id="paye_in" class="form-control" placeholder="Flat Rate">
+               <input type="number" id="flat_in" class="form-control" placeholder="Flat Rate">
             </div>
           </div>
           <br>
-          <h4>VAT PAYABLE:</h4><h5 id="vat_payable"></h5>
+          <div class="row">
+             <h4>VAT PAYABLE:</h4><h3 style="border-bottom-style: double; border-bottom-color:green ;" id="vat_payable"></h3>
+          </div>
+         
         </div>
         
         <div class="col-sm-6">
@@ -178,9 +181,9 @@
             <div class="card-body">
                 <h6 class="card-title"><p> Sales</h6><hr>
                    <h6>NHIL(2.5%)</h6> 
-                  <input id="vay_s_nhil" class="form-control" readonly/>
+                  <input id="vat_s_nhil" class="form-control" readonly/>
                   <h6>Get Funds(2.5%)</h6>
-                  <input id="vay_s_getfunds" class="form-control" readonly />
+                  <input id="vat_s_getfunds" class="form-control" readonly />
                   <h6>VAT(12.5%)</h6>
                    <input type="number" id="vat_s_vat" class="form-control" readonly />
                  <h6>Output VAT</h6>
@@ -188,9 +191,9 @@
 
                   <h6 class="card-title"><p> Purchases</h6><hr>
                     <h6>NHIL(2.5%)</h6>
-                  <input id="vay_p_nhil" class="form-control" readonly />
+                  <input id="vat_p_nhil" class="form-control" readonly />
                   <h6>Get Funds(2.5)</h6>
-                  <input id="vay_p_getfunds" class="form-control" readonly />
+                  <input id="vat_p_getfunds" class="form-control" readonly />
                   <h6>VAT(12.5%)</h6>
                    <input type="number" id="vat_p_vat" class="form-control" readonly />
                    <h6>Flat(3%)</h6>
@@ -206,7 +209,7 @@
       </div>
     
     <br>
-        <button class="btn btn-info btn-block" onclick="calc_paye()"> Calculate</button>
+        <button class="btn btn-info btn-block" onclick="calc_vat()"> Calculate</button>
     
     
     </div>
