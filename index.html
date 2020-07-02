@@ -98,53 +98,164 @@
 </head>
 
 <body>
-    <div class="container" style="margin-top: 10pt;"> 
-    <input type="number" id="in_amnt" class="container form-control" placeholder="Enter Amount" style="max-width: 250px;"/>
-    <hr>
-    <div class=" container row">
-        <!-- PAYE -->
-        <div class="col-4">
-        
-        <!-- <input type="number" id="paye_amnt"  placeholder="Enter Amount for PAYE" /> -->
-        <button class="btn btn-outline-info" id="paye_go" onclick="calc_paye()">Get PAYE</button>
+    
+   <div class="container">
 
-        <div class="jumbotron">
-            <div class="row">
-            PAYE Payable: 
-            <h5 disabled="" id="paye_out"> </h5>
-            </div>
-            
-            </div>
-        </div>
-        
-        <!-- VAT-->
-        <div class="col-4">
-       
-        <!-- <input type="number" id="vat_amnt" placeholder="Enter Amount for VAT" /> -->
-        <button class="btn btn-outline-info" id="vat_go" onclick="calc_vat()">Get VAT</button>
-        <span title="Consumer Service Tax" style="font-size: small;">C.S.T</span> <input type="checkbox" id="cst" class="form-check-inline"/>
+    <!-- pay as you earn  -->
+<div class="card" style="width:50%;">
+<div class="card-header bg-dark">
+<!-- header -->
+<h5 style="color:white;">PAY AS YOU EARN</h5>
+</div>
 
-        <div class="jumbotron">
-            <div class="row">
-            VAT Payable: 
-            <h5 disabled="" id="vat_out"> </h5>
-            </div>
-            
-            </div>
+<div class="card-body">
+<!-- body  -->
+
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title"><p>  Please Enter Only the <strong style="color:red;">Chargeable</strong> income</p></h6>
+          <input type="number" id="paye_in" class="form-control">
+          
         </div>
-        
-        <!-- With holding-->
-        <div class="col-4">
-        
-        <!-- <input type="number" id="wh_amnt" placeholder="Enter Amount for WithHolding" /> -->
-        <button class="btn btn-outline-info" id="wh_Go">Get WithHolding</button>
-         
-        </div>
-        
-        </div>
+      </div>
     </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Pay as your Earn Payable..GHS</h6>
+          <input type="number" id="paye_out" class="form-control" readonly />
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+    <button class="btn btn-info btn-block" onclick="calc_paye()"> Calculate</button>
+
+
+</div>
+
+
+
+</div>
+
+<br>
+<!-- value added tax  -->
+<div class="card" style="width:inherit;">
+    <div class="card-header bg-dark">
+    <!-- header -->
+    <h5 style="color:white;">VALUE ADDED TAX</h5>
+    </div>
+    
+    <div class="card-body">
+    <!-- body  -->
+    <div class="row">
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title"><p> Value of Supply</h6><hr>
+                
+              <input type="number" id="paye_in" class="form-control" placeholder="Goods/Services">
+              <br>
+               <input type="number" title="Communication Service Tax" id="paye_in" class="form-control" placeholder="Communication Service Tax">
+<hr>
+              <h6 class="card-title"><p> Value of Purchases</h6><hr>
+               
+              <input type="number" id="paye_in" class="form-control" placeholder="Standard Rate">
+              <br>
+               <input type="number" id="paye_in" class="form-control" placeholder="Flat Rate">
+            </div>
+          </div>
+          <br>
+          <h4>VAT PAYABLE:</h4><h5 id="vat_payable"></h5>
+        </div>
+        
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+                <h6 class="card-title"><p> Sales</h6><hr>
+                   <h6>NHIL(2.5%)</h6> 
+                  <input id="vay_s_nhil" class="form-control" readonly/>
+                  <h6>Get Funds(2.5%)</h6>
+                  <input id="vay_s_getfunds" class="form-control" readonly />
+                  <h6>VAT(12.5%)</h6>
+                   <input type="number" id="vat_s_vat" class="form-control" readonly />
+                 <h6>Output VAT</h6>
+                   <input type="number" id="vat_s_out" class="form-control" readonly />
+
+                  <h6 class="card-title"><p> Purchases</h6><hr>
+                    <h6>NHIL(2.5%)</h6>
+                  <input id="vay_p_nhil" class="form-control" readonly />
+                  <h6>Get Funds(2.5)</h6>
+                  <input id="vay_p_getfunds" class="form-control" readonly />
+                  <h6>VAT(12.5%)</h6>
+                   <input type="number" id="vat_p_vat" class="form-control" readonly />
+                   <h6>Flat(3%)</h6>
+                   <input type="number" id="vat_p_flat" class="form-control" readonly />
+                 <h6>Output VAT</h6>
+                   <input type="number" id="vat_p_out" class="form-control" readonly />
+                   <br>
+                   <h6>CST</h6>
+                   <input type="number" id="cst_out" class="form-control" readonly />
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <br>
+        <button class="btn btn-info btn-block" onclick="calc_paye()"> Calculate</button>
+    
+    
+    </div>
+    
+    
+    
+    </div>
+
+
+<br>
+<!-- withholding  -->
+    <div class="card" style="width:80%;">
+        <div class="card-header bg-dark">
+        <!-- header -->
+        <h5 style="color:white;">WITHHOLDING </h5>
+        </div>
+        
+        <div class="card-body">
+        <!-- body  -->
+        
+        </div>
         
         
+        
+        </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </div>
+   
+        
+      
+   
+   
         
 
 
