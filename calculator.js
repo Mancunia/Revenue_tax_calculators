@@ -4,10 +4,13 @@ var tax;
 var n_amnt;
 
 //..............................
-var nhil_getfund;
+var nhil;
 var vat;
 var result;
-
+var sale_v;
+var flat_p;
+var cst;
+var payable
 
 //
 function PAYE(amnt){
@@ -52,34 +55,20 @@ else{
 document.getElementById("paye_out").value=c_tax.toFixed(2); 
 }
 
-//  function VAT(amnt){
-//      var my_vat;
-//      amnt=parseFloat(amnt);
-//     //  var flat= document.getElementById("flat").value;
-//      var nhil = amnt * .025;
-//      nhil+=nhil;
-//      console.log(nhil);
-//      //no flat
-//           my_vat = (amnt+nhil);
-//           console.log(my_vat);
-//           if (document.getElementById('cst').checked) {
-//             var cst= amnt*.09;
-//             my_vat+=cst;
-//         }
-//           my_vat *=0.125;
-//           console.log(my_vat);
-//      document.getElementById("vat_out").innerHTML=my_vat.toFixed(2); 
-     
-//  }
-
 //calculate CST
 function CST(amnt){
 
-    amnt=parseFloat(amnt);
+    if(amnt!=""){
+        amnt=parseFloat(amnt);
     result=amnt*.09;
-    result=result.toFixed(2)
+    // result=result.toFixed(2)
 
-    document.getElementById("cst_out").value=result;
+    }
+    else{
+        result=0;
+    }
+    
+    document.getElementById("cst_out").value=result.toFixed(2);
 
 return result;
 
@@ -88,58 +77,196 @@ return result;
 //calculate Flat
 function flat(amnt){
 
-    amnt=parseFloat(amnt);
+    if(amnt!=""){
+    // result=result.toFixed(2)
+ amnt=parseFloat(amnt);
+     console.log("flat after:"+amnt);
+
     result=amnt*.03;
-    result=result.toFixed(2)
-console.log(result);
-    document.getElementById("vat_p_flat").value=result;
+console.log("flat:"+result);
+
+    }
+    else{
+        result=0;
+    }
+
+console.log("flat b4:"+amnt);
+       
+    document.getElementById("vat_p_flat").value=result.toFixed(2);
+    
 return result;
 
 }
 
+function nhil_getfund(amnt){
+console.log("amnt b4"+amnt);
+    amnt=parseFloat(amnt);
+console.log("amnt after"+amnt);
+    nhil= amnt*.025;
+
+    nhil+=nhil;
+
+
+  return nhil;
+}
+
+
+
 //calculate vat on sales
 function v_sales(amnt){
+if(amnt!=""){
 
     amnt=parseFloat(amnt);
 
- nhil= amnt*.025;
- document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
-  document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
+ 
+//  console.log("the one:"+amnt);
 
- nhil+=nhil;
+ //calc CST
+  cst=document.getElementById("cst_in").value;
+//  
+// console.log("that cst:"+cst);
+if(cst==""){
+    cst=0;
+}
+else{
+    cst=parseFloat(cst);
+}
+amnt+=cst;
+
+// console.log("after:"+amnt);
+//get NHIL and getFund 
+nhil=nhil_getfund(amnt);
  amnt+=nhil;
- console.log("the one:"+amnt);
- if(document.getElementById("cst_in").value!=""){
-     var cst=document.getElementById("cst_in").value;
-     cst= CST(cst);
-     cst=parseFloat(cst);
-     amnt+=cst;
-     console.log("that one:"+amnt);
- }
+ 
+ amnt+=CST(cst);
 
+
+ 
+     
+    //  console.log("that one:"+amnt);
+if(nhil==0){
+    nhil=0;
+}
+else{
+    nhil=nhil/2;
+}
+ 
+ 
+
+ document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
+ document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
+ 
  result=amnt*.125;
- console.log("this one:"+result);
-result=result.toFixed(2);
-document.getElementById("vat_s_vat").value=result;
+//  console.log("this one:"+result); 
+}
+else{
+   result=0; 
+}
+   
+document.getElementById("vat_s_vat").value=result.toFixed(2);
  return result;
 }
 
 
 //calculate vat on purchases
 function v_purchases(amnt){
-    amnt=parseFloat(amnt);
+    if(amnt!=""){
 
- nhil= amnt*.025;
- document.getElementById("vat_p_nhil").value=nhil.toFixed(2);
-  document.getElementById("vat_p_getfunds").value=nhil.toFixed(2);
- nhil*=2;
+        amnt=parseFloat(amnt);
+
+ nhil=nhil_getfund(amnt)
+
  amnt+=nhil;
 
+ nhil=nhil/2;
+ 
+ document.getElementById("vat_p_nhil").value=nhil.toFixed(2);
+ document.getElementById("vat_p_getfunds").value=nhil.toFixed(2);
+
+
  result=amnt*.125;
+ console.log("result b4 flat:"+result);
+
+ 
+ if(document.getElementById("flat_in").value==""){
+     flat_p=0;
+ }
+ else{
+ flat_p=document.getElementById("flat_in").value;
+ console.log("flat b4 parse:"+flat_p);
+     flat_p=parseFloat(flat_p);
+console.log("flat aft parse:"+flat_p);
+     flat_p=flat(flat_p);
+}
+
+ result+=flat_p;
+ console.log("vat_P:"+result);
+ 
+ 
+
  result=result.toFixed(2);
+
+    }
+    else{
+
+        result=0;
+    }
+    
 document.getElementById("vat_p_vat").value=result;
 return result;
 }
+
+
+
+//withholding VAT
+function wht_VAT(amnt){
+    amnt=parseFloat(amnt);
+
+    nhil_fund= amnt*.05;
+    amnt+=nhil_fund;
+    console.log(amnt);
+
+    vat=amnt*.125;
+    var w_vat=amnt*.07;
+     console.log(w_vat);
+
+    tax=amnt+vat;
+    tax-=w_vat;
+
+    console.log(tax);
+
+    return tax;
+
+}
+
+// reverse withholding VAT
+function rvs_wVAT(amnt){
+
+    amnt=parseFloat(amnt);
+
+    //calc VAT
+    vat=amnt/112.5;
+     console.log(vat);
+    vat*=12.5;
+   console.log(vat);
+
+    amnt-=vat;
+    w_vat=amnt*.07;
+    console.log(w_vat);
+    
+    nhil_fund=amnt/105;
+    nhil_fund*=5;
+
+    nhil_fund= nhil_fund/2;
+    console.log(nhil_getfund);
+
+}
+
+
+
+
+
+
 
 
 
@@ -152,33 +279,71 @@ function calc_paye(){
     }
 
 
+
+
+
+
+
     function calc_vat(){
 
+        if(document.getElementById("sales_in").value!=""){
         var sales_v= document.getElementById("sales_in").value;
-        sales_v=v_sales(sales_v);
-        sales_v=parseFloat(sales_v);
+            // sales_v=parseFloat(sales_v);
+                sales_v=v_sales(sales_v);
+                sales_v=parseFloat(sales_v);
+
+        }
+        else{
+            sales_v=v_sales(0);
+        }
+       
+        if(document.getElementById("purchase_in").value!=""){
 
         var purchase_v= document.getElementById("purchase_in").value;
+        // purchase_v=parseFloat(purchase_v);
+        console.log("standard"+purchase_v);
         purchase_v=v_purchases(purchase_v);
         purchase_v=parseFloat(purchase_v);
-
-        if(document.getElementById("flat_in").value!=""){
-           var flat_p= document.getElementById("flat_in").value;
-        flat_p=flat(flat_p);
-        flat_p=parseFloat(flat_p);
-
-        purchase_v+=flat_p;  
-        console.log(purchase_v);
+        }
+        else{
+            purchase_v=v_purchases(0);
         }
 
-var payable = sales_v - purchase_v;
+        if (sales_v==0){
+           payable =purchase_v;
+        }
+        else if (purchase_v==0){
+             payable =sales_v;
+        }
+        else{
+            payable = sales_v - purchase_v;
+        }
+
+
+
+
+
+
 
 document.getElementById("vat_payable").innerHTML=payable.toFixed(2);
-document.getElementById("vat_s_out").value=sales_v;
+
+if(sales_v>0){
+    document.getElementById("vat_s_out").style.borderColor ="lightgreen";
+document.getElementById("vat_s_out").style.borderWidth ="thick";
+}else{
+    document.getElementById("vat_s_out").style.borderColor ="";
+document.getElementById("vat_s_out").style.borderWidth ="";
+}
+if(purchase_v>0){
+    document.getElementById("vat_p_out").style.borderColor ="lightgreen";
+document.getElementById("vat_p_out").style.borderWidth ="thick";
+}
+
+document.getElementById("vat_s_out").value=sales_v.toFixed(2);
 document.getElementById("vat_p_out").value=purchase_v.toFixed(2);
 
        console.log("payable:" +payable.toFixed(2));
-       console.log("sales:"+sale_v.toFixed(2));
+       console.log("sales:"+sales_v);
        console.log("purchase:"+purchase_v);
 
 

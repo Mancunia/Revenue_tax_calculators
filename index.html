@@ -169,9 +169,10 @@
                <input type="number" id="flat_in" class="form-control" placeholder="Flat Rate">
             </div>
           </div>
-          <br>
+         
+          <button class="btn btn-info btn-block" onclick="calc_vat()"> Calculate</button> <br>
           <div class="row">
-             <h4>VAT PAYABLE:</h4><h3 style="border-bottom-style: double; border-bottom-color:green ;" id="vat_payable"></h3>
+             <h4>VAT PAYABLE:</h4><h3 id="vat_payable"></h3>
           </div>
          
         </div>
@@ -179,7 +180,7 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-                <h6 class="card-title"><p> Sales</h6><hr>
+                <h6 class="card-title"><b> Sales</b></h6><hr>
                    <h6>NHIL(2.5%)</h6> 
                   <input id="vat_s_nhil" class="form-control" readonly/>
                   <h6>Get Funds(2.5%)</h6>
@@ -187,9 +188,9 @@
                   <h6>VAT(12.5%)</h6>
                    <input type="number" id="vat_s_vat" class="form-control" readonly />
                  <h6>Output VAT</h6>
-                   <input type="number" id="vat_s_out" class="form-control" readonly />
+                   <input type="number" id="vat_s_out" style="font-size:12pt; font-weight: bold;" class="form-control" readonly />
 
-                  <h6 class="card-title"><p> Purchases</h6><hr>
+                  <hr><h6 class="card-title"><b> Purchases</b></h6>
                     <h6>NHIL(2.5%)</h6>
                   <input id="vat_p_nhil" class="form-control" readonly />
                   <h6>Get Funds(2.5)</h6>
@@ -198,8 +199,8 @@
                    <input type="number" id="vat_p_vat" class="form-control" readonly />
                    <h6>Flat(3%)</h6>
                    <input type="number" id="vat_p_flat" class="form-control" readonly />
-                 <h6>Output VAT</h6>
-                   <input type="number" id="vat_p_out" class="form-control" readonly />
+                 <h6>Input VAT</h6>
+                   <input type="number" id="vat_p_out" class="form-control" style="font-size:12pt; font-weight: bold;" readonly />
                    <br>
                    <h6>CST</h6>
                    <input type="number" id="cst_out" class="form-control" readonly />
@@ -209,7 +210,7 @@
       </div>
     
     <br>
-        <button class="btn btn-info btn-block" onclick="calc_vat()"> Calculate</button>
+        
     
     
     </div>
