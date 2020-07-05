@@ -230,13 +230,51 @@
         
         <div class="card-body">
         <!-- body  -->
-        
-        </div>
-        
-        
-        
-        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title"><p>Payment Amount</h6><hr>
+<!-- Input-->   <input type="number" id="w_h" class="form-control" placeholder="Payment Amount">
+                  <input type="checkbox" id="rvs_wh" > Check if <span style="color:brown;">VAT/NHIL/GetFund</span> are included.
+                  </div>
+                  </div><br>
+                  <button class="btn btn-info btn-block" onclick="calc_wh()"> Calculate</button> <br>
+                  </div>
+                  
 
+  <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title"><p> Resukts</h6><hr>
+                  <h6>NHIL(2.5%):</h6>
+<!-- Output-->   <input type="number" id="wh_nhil_out" class="form-control" readonly />
+                  <h6>GetFund(2.5%):</h6>
+                  <input type="number" id="wh_getF_out" class="form-control" readonly />
+                  <h6>Taxable Amount:</h6>
+                  <input type="number" id="wh_taxable_out" class="form-control" readonly />
+                  <h6>VAT(12.5%):</h6>
+                  <input type="number" id="wh_vat_out" class="form-control" readonly />
+                  <h6>Withholding Amount(7%):</h6>
+                  <input type="number" id="wh_amnt_out" class="form-control" readonly />
+                  <h6>Payable To Supply:</h6>
+                  <input type="number" id="payable_out" class="form-control" readonly />  
+
+
+                  </div>
+                  </div>
+                  </div>
+
+  </div>
+        
+        </div>
+       
+        
+        
+        
+        </div>
+ <br><br>
+        </div>
 
 
 

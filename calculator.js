@@ -222,20 +222,29 @@ return result;
 function wht_VAT(amnt){
     amnt=parseFloat(amnt);
 
-    nhil_fund= amnt*.05;
+    nhil_fund= nhil_getfund(amnt);
     amnt+=nhil_fund;
-    console.log(amnt);
+    // console.log(amnt);
 
     vat=amnt*.125;
     var w_vat=amnt*.07;
-     console.log(w_vat);
+    //  console.log(w_vat);
 
     tax=amnt+vat;
     tax-=w_vat;
+    nhil_fund/=2;
 
-    console.log(tax);
+    // console.log(tax);
 
-    return tax;
+    document.getElementById("wh_vat_out").value=vat.toFixed(2);
+     document.getElementById("wh_amnt_out").value=w_vat.toFixed(2);
+    document.getElementById("wh_nhil_out").value=nhil_fund.toFixed(2);
+    document.getElementById("wh_getF_out").value=nhil_fund.toFixed(2);
+
+    document.getElementById("wh_taxable_out").value=amnt.toFixed(2);
+
+    document.getElementById("payable_out").value=tax.toFixed(2);
+    
 
 }
 
@@ -246,19 +255,30 @@ function rvs_wVAT(amnt){
 
     //calc VAT
     vat=amnt/112.5;
-     console.log(vat);
+    //  console.log(vat.toFixed(2));
     vat*=12.5;
-   console.log(vat);
+//    console.log("The VAT ankasa:"+vat.toFixed(2));
+
 
     amnt-=vat;
     w_vat=amnt*.07;
-    console.log(w_vat);
-    
+    // console.log(w_vat.toFixed(2));
+   
+
     nhil_fund=amnt/105;
     nhil_fund*=5;
 
     nhil_fund= nhil_fund/2;
-    console.log(nhil_getfund);
+    // console.log(nhil_fund.toFixed(2));
+    var payable=amnt-w_vat;
+    
+    document.getElementById("wh_vat_out").value=vat.toFixed(2);
+     document.getElementById("wh_amnt_out").value=w_vat.toFixed(2);
+    document.getElementById("wh_nhil_out").value=nhil_fund.toFixed(2);
+    document.getElementById("wh_getF_out").value=nhil_fund.toFixed(2);
+
+    
+    document.getElementById("payable_out").value=payable.toFixed(2);
 
 }
 
@@ -275,7 +295,14 @@ function rvs_wVAT(amnt){
 
 function calc_paye(){
     var in_amnt= document.getElementById("paye_in").value;
-    PAYE(in_amnt);
+    if(amnt==""|| amnt==0){
+        document.getElementById("paye_in").style.borderColor ="red";
+        document.getElementById("paye_in").style.borderWidth ="thick";
+    }
+    else{
+        PAYE(in_amnt);
+    }
+    
     }
 
 
@@ -342,10 +369,29 @@ document.getElementById("vat_p_out").style.borderWidth ="thick";
 document.getElementById("vat_s_out").value=sales_v.toFixed(2);
 document.getElementById("vat_p_out").value=purchase_v.toFixed(2);
 
-       console.log("payable:" +payable.toFixed(2));
-       console.log("sales:"+sales_v);
-       console.log("purchase:"+purchase_v);
+    //    console.log("payable:" +payable.toFixed(2));
+    //    console.log("sales:"+sales_v);
+    //    console.log("purchase:"+purchase_v);
 
 
 
         }
+
+
+    function calc_wh(){
+        amnt=document.getElementById("w_h").value;
+        if(amnt==""|| amnt==0){
+            document.getElementById("w_h").style.borderColor ="red";
+            document.getElementById("w_h").style.borderWidth ="thick";
+        }
+        else{
+            if(document.getElementById("rvs_wh").checked == true){
+                rvs_wVAT(amnt);
+
+            }
+            else{
+                wht_VAT(amnt);
+            }
+        }
+
+    }    
