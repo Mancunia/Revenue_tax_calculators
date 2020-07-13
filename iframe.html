@@ -15,22 +15,40 @@
 <div class="row">
 
     <div class="col-5">
-        <div class="card">
+        <div class="">
             <div class="card-header" style="background-color: #192A56; color:white;">
                 Currency Converter
             </div>
             <div class="card-body">
-                <select name="" id="curncy" class="form-control">
-    <option value="" class="form-control">Select A Currency</option>
-    <option value="USD">US Dollar</option>
-    <option value="EUR">Euro</option>
-    <option value="GBP">GB Pounds</option>
-    <option value="JPY">JP Yen</option>
-    <option value="CHF">CH Yen</option>
+                <select name="" id="curncy_frm" class="form-control">
+    <option value="ghs" class="form-control">GH Cedis</option>
+    <option value="usd">US Dollar</option>
+    <option value="eur">Euro</option>
+    <option value="gbp">GB Pounds</option>
+    <option value="jpy">JP Yen</option>
+    <option value="chf">CH Yuan</option>
 </select><br>
-<input type="number" id="amnt" class="form-control"><br>
-<button id="cnvrt_curncy" class="btn btn-block btn-primary">Calculate</button>
 
+<input type="number" id="amnt" class="form-control"><br>
+
+<select name="" id="curncy_to" class="form-control">
+    <option value="" class="form-control">Select A Currency</option>
+    <option value="ghs">GH Cedis</option>
+    <option value="usd">US Dollar</option>
+    <option value="eur">Euro</option>
+    <option value="gbp">GB Pounds</option>
+    <option value="jpy">JP Yen</option>
+    <option value="chf">CH Yen</option>
+</select>
+<span id="to_msg" style="color:red;"></span><br>
+
+
+<button id="con_vert" class="btn btn-block btn-primary">Calculate</button>
+
+<div class="container row">
+  <div class="col-6">Total:<h4 id="con_total"></h4></div>
+  <div class="col-6">Rate:<h4 id="con_rate"></h4></div>
+</div>
             </div>
             
         </div>
@@ -40,7 +58,7 @@
     </div>
 
     <div class="col-7">
-        <div class="card">
+        <div class="">
 
             <table class="table table-hover" id="rates">
             <thead style="background-color: #192A56; color:white;">
@@ -56,38 +74,38 @@
               <tr>
                 <th scope="row">1</th>
                 <td>US Dollar</td>
-                <td id="0_date"> </td>
-                <td id="0_rate"></td>
+                <td id="date_0"> </td>
+                <td id="rate_0"></td>
                
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Euro</td>
-                <td id="1_date"> </td>
-                <td id="1_rate"></td>
+                <td id="date_1"> </td>
+                <td id="rate_1"></td>
                 
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>Pounds Sterling</td>
-                <td id="2_date"> </td>
-                <td id="2_rate"></td>
+                <td id="date_2"> </td>
+                <td id="rate_2"></td>
                 
               </tr>
 
               <tr>
                 <th scope="row">4</th>
                 <td>Japan Yen</td>
-                <td id="3_date"> </td>
-                <td id="3_rate"></td>
+                <td id="date_3"> </td>
+                <td id="rate_3"></td>
                 
               </tr>
               
               <tr>
                 <th scope="row">5</th>
                 <td>China Yuan</td>
-                <td id="4_date"> </td>
-                <td id="4_rate"></td>
+                <td id="date_4"> </td>
+                <td id="rate_4"></td>
                 
               </tr>
             </tbody>
@@ -103,59 +121,89 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
 <script>
-function loadRates(){
+var cur_from,cur_to,amnt;
 
-  if (window.XMLHttpRequest) {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            if (this.responseText==""){
-                console.log("api didn't worked");
-                
-            }
-            else{
-              console.log("api worked");
-              console.log(responseText);
-              var rates=responseText;
+  function Currency_con(cur_from,cur_to,amnt){
+    amnt=parseFloat(amnt);
+    
+    $.ajax({
+type: "GET",
+url: 'https://dev.kwayisi.org/apis/forex/'+cur_from+'/'+cur_to,
+// data: {name: 'George'},
+success: function(data){
+  var rates=data;
 
-              for(var i=0; i<=Object.keys(rates.rates).length;i++){
-                var c_date=rates.rates[i]["date"];
-                 var c_rate=rates.rates[i]["rate"];
+console.log(rates);
+var c_rate=rates["rate"];
+amnt= amnt*c_rate;
 
-                 document.getElementById(i+"_date").innerHTML=c_date;
-                 document.getElementById(i+"rate").innerHTML=c_rate;
+$("#con_total").html(amnt.toFixed(2));
+$("#con_rate").html(c_rate);
 
-              }
-            }
-        }
-    };
-    xmlhttp.open("GET","https://dev.kwayisi.org/apis/forex/ghs",true);
-    xmlhttp.send();
 
 }
-
-
-
+  })
+  }
 
 $( document ).ready(function() {
     console.log( "ready!" );
-    // loadRates();
-var url="https://dev.kwayisi.org/apis/forex/ghs";
-    $.ajax({
-        url: url,
-        dataType: "JSON",
-        success: function (data) {
-         var latitude =response.rates[0]["date"];
-        console.log(latitude);
-       }
-     });
-});
 
+
+$.ajax({
+type: "GET",
+url: 'https://dev.kwayisi.org/apis/forex/ghs',
+// data: {name: 'George'},
+success: function(data){
+
+// console.log(data);
+var rates=data;
+
+console.log(rates);
+
+var ar_len=Object.keys(rates.rates).length;
+
+              for(var i=0; i<=ar_len;i++){
+                var c_date=rates.rates[i]["date"];
+                 var c_rate=rates.rates[i]["rate"];
+                 console.log(c_rate+" "+c_date);
+
+                 document.getElementById("date_"+i).innerHTML=c_date;
+                 document.getElementById("rate_"+i).innerHTML=c_rate;
+
+              }
+}
+})
+
+
+$(document).on('click','#con_vert',function(){
+  cur_from=document.getElementById("curncy_frm").value;
+  cur_to=document.getElementById("curncy_to").value;
+  amnt=document.getElementById("amnt").value;
+  if(amnt==""){
+    $("#amnt").attr("style","border-color:red");
+   
+  }
+  else{
+    $("#amnt").attr("style","border-color:green");
+    if(cur_to==""){
+    $("#curncy_to").attr("style","border-color:red");
+    $("#to_msg").html("Please Select a currency to convert to!");
+  }
+  else{
+    $("#curncy_to").attr("style","border-color:green");
+    $("#to_msg").html("");
+    Currency_con(cur_from,cur_to,amnt);
+    // console.log(res);
+
+  }
+
+  }
+  
+  
+})
+
+
+})
 
     
 </script>
