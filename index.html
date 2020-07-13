@@ -7,90 +7,65 @@
     <script src="style/bootstrap.js"></script>
 
     <style>
-    .row_card_hor{
-    
-    align-items: stretch;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    
-  
-}
-.card_les {
-    /* float: left; */
-    max-width: 600px;
-    padding: .75rem;
-    margin-bottom: 2rem;
-    border: 0;
-    /* flex-basis: 33.333%; */
-    flex-grow: 0;
-    flex-shrink: 0;
-    height:90%;
-  
-  }
-
-    .title{
-        color:white;
-        font-size: 30pt;
-        font-family:Arial black;    
-    }
-    
-
-    .navbar.transparent.navbar-inverse .navbar-inner {
-   background: rgba(0,0,0,0.4);
+    #com-menu {
+    border-color:#192A56;
+    border-width: thick;
+    border-radius:10px;
+    position: fixed;
+    /*z-index: 10;
+    */z-index:2147483648;
+    right: 0;
+    top: 120px;
+    float: right;
+    width: 20%;
+    background-color: rgba(red, rgba(0, 0, 0, 0.288), blue, alpha);
+    margin-bottom: 0%;
+    transform: translateX(10%) translateX(-5px);
+    transition: all 0.2s;
+    /*display: none;
+    */
+    -webkit-transform: translateX(0%) translateX(-5px);
+    -moz-transform: translateX(0%) translateX(-5px);
+    -ms-transform: translateX(0%) translateX(-5px);
+    -o-transform: translateX(0%) translateX(-5px);
 }
 
-.navbar {
-    transition: all 0.4s;
-}
+/* #com-menu:hover{
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+} */
 
-.navbar .nav-link {
-    color: #fff;
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link:focus {
-    color: #fff;
-    text-decoration: none;
-}
-
-.navbar .navbar-brand {
-    color: #fff;
-}
-
-
-/* Change navbar styling on scroll */
-.navbar.active {
-    background: #fff;
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar.active .nav-link {
-    color: #555;
-}
-
-.navbar.active .nav-link:hover,
-.navbar.active .nav-link:focus {
-    color: #555;
-    text-decoration: none;
-}
-
-.navbar.active .navbar-brand {
-    color: #555;
+#com-menu a {
+    padding: 10px;
+    background-color: rgba(10, 10, 10, 0.288);
+    border-bottom-color:rgb(230, 226, 2);
+    display: block;
+    /* background: #333; */
+    color: rgb(255, 255, 255);
+    margin-left: 20%;;
 }
 
 
 /* Change navbar styling on small viewports */
 @media (max-width: 991.98px) {
-    .navbar {
-        background: #fff;
-    }
+  #com-menu{
+    transform: translateX(90%) translateX(-5px);
+  -webkit-transform: translateX(90%) translateX(-5px);
+    -moz-transform: translateX(90%) translateX(-5px);
+    -ms-transform: translateX(90%) translateX(-5px);
+    -o-transform: translateX(90%) translateX(-5px);
+}
 
-    .navbar .navbar-brand, .navbar .nav-link {
-        color: #555;
-    }
+#com-menu:hover{
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
 }
 
 
@@ -98,6 +73,16 @@
 </head>
 
 <body>
+  <div class="row">
+    <!--  -->
+    
+    <div id="com-menu" class="col-lg-6 col-sm-10" >
+  
+    <a href="#paye" class="btn btn-inline-dark">PAYE</a>
+    <a href="#vat" class="btn btn-inline-dark">VAT</a>
+    <a href="#wh" class="btn btn-inline-dark">Withholding</a>
+    </div>
+    </div>
     
    <div class="container">
 
@@ -113,7 +98,7 @@
 
 <div class="row">
     <div class="col-sm-6">
-      <div class="card">
+      <div class="card" id="paye">
         <div class="card-body">
           <h6 class="card-title"><p>  Please Enter Only the <strong style="color:red;">Chargeable</strong> income</p></h6>
           <input type="number" id="paye_in" class="form-control">
@@ -154,7 +139,7 @@
     <div class="row">
 
         <div class="col-sm-6">
-          <div class="card">
+          <div class="card" id="vat">
             <div class="card-body">
               <h6 class="card-title"><p> Value of Supply</h6><hr>
                 
@@ -172,9 +157,11 @@
          
           <button class="btn btn-info btn-block" onclick="calc_vat()"> Calculate</button> <br>
           <div class="row">
-             <h4>VAT PAYABLE:</h4><h3 id="vat_payable"></h3>
+             <h5>VAT PAYABLE:</h5><h5 id="vat_payable"></h5>
           </div>
-         
+          <div class="row">
+             <h5>CST PAYABLE:</h5><h5 id="cst_payable"></h5>
+          </div>
         </div>
         
         <div class="col-sm-6">
@@ -222,7 +209,7 @@
 
 <br>
 <!-- withholding  -->
-    <div class="card" style="width:80%;">
+    <div class="card" id="wh" style="width:80%;">
         <div class="card-header bg-dark">
         <!-- header -->
         <h5 style="color:white;">WITHHOLDING </h5>

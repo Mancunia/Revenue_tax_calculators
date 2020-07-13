@@ -69,7 +69,7 @@ function CST(amnt){
     }
     
     document.getElementById("cst_out").value=result.toFixed(2);
-
+ document.getElementById("cst_payable").innerHTML="&#8373;"+result.toFixed(2);
 return result;
 
 }
@@ -237,6 +237,16 @@ function wht_VAT(amnt){
     // console.log(tax);
 
     document.getElementById("wh_vat_out").value=vat.toFixed(2);
+if(w_vat>0){
+document.getElementById("wh_amnt_out").style.borderColor ="lightgreen";
+            document.getElementById("wh_amnt_out").style.borderWidth ="thick";
+}
+else{
+document.getElementById("wh_amnt_out").style.borderColor ="";
+            document.getElementById("wh_amnt_out").style.borderWidth ="";
+}
+
+
      document.getElementById("wh_amnt_out").value=w_vat.toFixed(2);
     document.getElementById("wh_nhil_out").value=nhil_fund.toFixed(2);
     document.getElementById("wh_getF_out").value=nhil_fund.toFixed(2);
@@ -270,14 +280,24 @@ function rvs_wVAT(amnt){
 
     nhil_fund= nhil_fund/2;
     // console.log(nhil_fund.toFixed(2));
-    var payable=amnt-w_vat;
+    var payable=(amnt+vat)-w_vat;
     
     document.getElementById("wh_vat_out").value=vat.toFixed(2);
+if(w_vat>0){
+document.getElementById("wh_amnt_out").style.borderColor ="lightgreen";
+            document.getElementById("wh_amnt_out").style.borderWidth ="thick";
+}
+else{
+document.getElementById("wh_amnt_out").style.borderColor ="";
+            document.getElementById("wh_amnt_out").style.borderWidth ="";
+}
      document.getElementById("wh_amnt_out").value=w_vat.toFixed(2);
     document.getElementById("wh_nhil_out").value=nhil_fund.toFixed(2);
     document.getElementById("wh_getF_out").value=nhil_fund.toFixed(2);
 
-    
+document.getElementById("wh_taxable_out").value=amnt.toFixed(2);
+   
+
     document.getElementById("payable_out").value=payable.toFixed(2);
 
 }
@@ -300,6 +320,9 @@ function calc_paye(){
         document.getElementById("paye_in").style.borderWidth ="thick";
     }
     else{
+        
+        document.getElementById("paye_in").style.borderColor ="";
+        document.getElementById("paye_in").style.borderWidth ="";
         PAYE(in_amnt);
     }
     
@@ -352,7 +375,7 @@ function calc_paye(){
 
 
 
-document.getElementById("vat_payable").innerHTML=payable.toFixed(2);
+document.getElementById("vat_payable").innerHTML="&#8373;"+payable.toFixed(2);
 
 if(sales_v>0){
     document.getElementById("vat_s_out").style.borderColor ="lightgreen";
@@ -385,6 +408,8 @@ document.getElementById("vat_p_out").value=purchase_v.toFixed(2);
             document.getElementById("w_h").style.borderWidth ="thick";
         }
         else{
+            document.getElementById("w_h").style.borderColor ="";
+            document.getElementById("w_h").style.borderWidth ="";
             if(document.getElementById("rvs_wh").checked == true){
                 rvs_wVAT(amnt);
 
@@ -394,4 +419,4 @@ document.getElementById("vat_p_out").value=purchase_v.toFixed(2);
             }
         }
 
-    }    
+    }  

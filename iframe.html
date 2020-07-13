@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="style/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="style/style.css" rel="stylesheet" type="text/css" >
+    <script src="style/bootstrap.js"></script>
+</head>
+
+<body>
+
+
+</body>
+<div class="container">
+<div class="row">
+
+    <div class="col-5">
+        <div class="card">
+            <div class="card-header" style="background-color: #192A56; color:white;">
+                Currency Converter
+            </div>
+            <div class="card-body">
+                <select name="" id="curncy" class="form-control">
+    <option value="" class="form-control">Select A Currency</option>
+    <option value="USD">US Dollar</option>
+    <option value="EUR">Euro</option>
+    <option value="GBP">GB Pounds</option>
+    <option value="JPY">JP Yen</option>
+    <option value="CHF">CH Yen</option>
+</select><br>
+<input type="number" id="amnt" class="form-control"><br>
+<button id="cnvrt_curncy" class="btn btn-block btn-primary">Calculate</button>
+
+            </div>
+            
+        </div>
+
+
+
+    </div>
+
+    <div class="col-7">
+        <div class="card">
+
+            <table class="table table-hover" id="rates">
+            <thead style="background-color: #192A56; color:white;">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Currency</th>
+                <th scope="col"> Date</th>
+                <th scope="col">Rate</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>US Dollar</td>
+                <td id="0_date"> </td>
+                <td id="0_rate"></td>
+               
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Euro</td>
+                <td id="1_date"> </td>
+                <td id="1_rate"></td>
+                
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Pounds Sterling</td>
+                <td id="2_date"> </td>
+                <td id="2_rate"></td>
+                
+              </tr>
+
+              <tr>
+                <th scope="row">4</th>
+                <td>Japan Yen</td>
+                <td id="3_date"> </td>
+                <td id="3_rate"></td>
+                
+              </tr>
+              
+              <tr>
+                <th scope="row">5</th>
+                <td>China Yuan</td>
+                <td id="4_date"> </td>
+                <td id="4_rate"></td>
+                
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        
+    </div>
+
+</div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+<script>
+function loadRates(){
+
+  if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText==""){
+                console.log("api didn't worked");
+                
+            }
+            else{
+              console.log("api worked");
+              console.log(responseText);
+              var rates=responseText;
+
+              for(var i=0; i<=Object.keys(rates.rates).length;i++){
+                var c_date=rates.rates[i]["date"];
+                 var c_rate=rates.rates[i]["rate"];
+
+                 document.getElementById(i+"_date").innerHTML=c_date;
+                 document.getElementById(i+"rate").innerHTML=c_rate;
+
+              }
+            }
+        }
+    };
+    xmlhttp.open("GET","https://dev.kwayisi.org/apis/forex/ghs",true);
+    xmlhttp.send();
+
+}
+
+
+
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+    // loadRates();
+var url="https://dev.kwayisi.org/apis/forex/ghs";
+    $.ajax({
+        url: url,
+        dataType: "JSON",
+        success: function (data) {
+         var latitude =response.rates[0]["date"];
+        console.log(latitude);
+       }
+     });
+});
+
+
+    
+</script>
+
+
+
+
+
+
+</html>
+
+
