@@ -118,9 +118,12 @@
 </div>
 
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
+
+jQuery( document ).ready(function() {
+    console.log( "ready!" );
 var cur_from,cur_to,amnt;
 
   function Currency_con(cur_from,cur_to,amnt){
@@ -144,10 +147,6 @@ $("#con_rate").html(c_rate);
 }
   })
   }
-
-$( document ).ready(function() {
-    console.log( "ready!" );
-
 
 $.ajax({
 type: "GET",
@@ -203,7 +202,7 @@ $(document).on('click','#con_vert',function(){
 })
 
 
-})
+});
 
     
 </script>
