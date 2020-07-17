@@ -118,52 +118,51 @@
 </div>
 
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
 
-
-jQuery( document ).ready(function() {
-    console.log( "ready!" );
-var cur_from,cur_to,amnt;
-
-  function Currency_con(cur_from,cur_to,amnt){
-    amnt=parseFloat(amnt);
+function convertion(){
+cur_from=document.getElementById("curncy_frm").value;
+  cur_to=document.getElementById("curncy_to").value;
+  amnt=document.getElementById("amnt").value;
+  if(amnt==""){
+    document.getElementById("amnt").style.borderColor="red";
+   
+  }
+  else{
+    document.getElementById("amnt").style.borderColor="green";
+    if(cur_to==""){
+    document.getElementById("curncy_to").style.borderColor="red";
+    document.getElementById("to_msg").innerHTML="Please Select a currency to convert to!";
+  }
+  else{
+    document.getElementById("curncy_to").style.borderColor="green";
+   document.getElementById("to_msg").innerHTML="";
     
-    $.ajax({
-type: "GET",
-url: 'https://dev.kwayisi.org/apis/forex/'+cur_from+'/'+cur_to,
-// data: {name: 'George'},
-success: function(data){
-  var rates=data;
-
-console.log(rates);
-var c_rate=rates["rate"];
-amnt= amnt*c_rate;
-
-$("#con_total").html(amnt.toFixed(2));
-$("#con_rate").html(c_rate);
-
+    Currency_con(cur_from,cur_to,amnt);
+}
 
 }
-  })
-  }
+}
 
-$.ajax({
-type: "GET",
-url: 'https://dev.kwayisi.org/apis/forex/ghs',
-// data: {name: 'George'},
-success: function(data){
+function Currency_table(){
+    
+    var url="https://dev.kwayisi.org/apis/forex/ghs";
+    
+let request = new XMLHttpRequest();
+request.open("GET",url);
+request.send();
+request.onload = () =>{
 
-// console.log(data);
-var rates=data;
+if(request.status==200){
 
-console.log(rates);
+var result=JSON.parse(request.response);
 
-var ar_len=Object.keys(rates.rates).length;
+var ar_len=Object.keys(result.rates).length;
 
               for(var i=0; i<=ar_len;i++){
-                var c_date=rates.rates[i]["date"];
-                 var c_rate=rates.rates[i]["rate"];
+                var c_date=result.rates[i]["date"];
+                 var c_rate=result.rates[i]["rate"];
                  console.log(c_rate+" "+c_date);
 
                  document.getElementById("date_"+i).innerHTML=c_date;
@@ -171,38 +170,54 @@ var ar_len=Object.keys(rates.rates).length;
 
               }
 }
-})
+else{
+alert("Request wasn't successful, Please try again later")
+}
+}
+
+}
 
 
-$(document).on('click','#con_vert',function(){
-  cur_from=document.getElementById("curncy_frm").value;
-  cur_to=document.getElementById("curncy_to").value;
-  amnt=document.getElementById("amnt").value;
-  if(amnt==""){
-    $("#amnt").attr("style","border-color:red");
-   
-  }
-  else{
-    $("#amnt").attr("style","border-color:green");
-    if(cur_to==""){
-    $("#curncy_to").attr("style","border-color:red");
-    $("#to_msg").html("Please Select a currency to convert to!");
-  }
-  else{
-    $("#curncy_to").attr("style","border-color:green");
-    $("#to_msg").html("");
-    Currency_con(cur_from,cur_to,amnt);
-    // console.log(res);
-
-  }
-
-  }
-  
-  
-})
 
 
-});
+function Currency_con(cur_from,cur_to,amnt){
+ amnt=parseFloat(amnt);
+    var result;
+    
+    var url="https://dev.kwayisi.org/apis/forex/"+cur_from+"/"+cur_to;
+    
+let request = new XMLHttpRequest();
+request.open("GET",url);
+request.send();
+request.onload = () =>{
+
+if(request.status==200){
+result=JSON.parse(request.response);
+
+var c_rate=result["rate"];
+
+amnt= amnt*c_rate;
+
+document.getElementById("con_total").innerHTML=amnt.toFixed(2);
+document.getElementById("con_rate").innerHTML=c_rate;
+}
+else{
+alert("Request wasn't successful, Please try again")
+}
+}
+
+}
+
+
+
+
+Currency_table();
+
+document.getElementById("con_vert").addEventListener("click",convertion);
+
+
+
+
 
     
 </script>
