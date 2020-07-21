@@ -98,13 +98,22 @@ return result;
 
 }
 
-function nhil_getfund(amnt){
-console.log("amnt b4"+amnt);
+function nhil_getfund(amnt,nhil){
+    var state=nhil;
     amnt=parseFloat(amnt);
-console.log("amnt after"+amnt);
-    nhil= amnt*.025;
+    if(state==1){
+nhil= amnt*.025; 
+nhil+=nhil;
 
-    nhil+=nhil;
+    }
+    else{
+    nhil=(amnt/105)*5;
+    nhil/=2;
+
+    }
+
+
+   
 
 
   return nhil;
@@ -135,7 +144,7 @@ amnt+=cst;
 
 // console.log("after:"+amnt);
 //get NHIL and getFund 
-nhil=nhil_getfund(amnt);
+nhil=nhil_getfund(amnt,1);
  amnt+=nhil;
  
  amnt+=CST(cst);
@@ -174,7 +183,7 @@ function v_purchases(amnt){
 
         amnt=parseFloat(amnt);
 
- nhil=nhil_getfund(amnt)
+ nhil=nhil_getfund(amnt,1)
 
  amnt+=nhil;
 
@@ -218,11 +227,13 @@ return result;
 
 
 
+
+
 //withholding VAT
 function wht_VAT(amnt){
     amnt=parseFloat(amnt);
 
-    nhil_fund= nhil_getfund(amnt);
+    nhil_fund= nhil_getfund(amnt,1);
     amnt+=nhil_fund;
     // console.log(amnt);
 
@@ -275,10 +286,7 @@ function rvs_wVAT(amnt){
     // console.log(w_vat.toFixed(2));
    
 
-    nhil_fund=amnt/105;
-    nhil_fund*=5;
-
-    nhil_fund= nhil_fund/2;
+    nhil_fund= nhil_getfund(amnt,0);
     // console.log(nhil_fund.toFixed(2));
     var payable=(amnt+vat)-w_vat;
     

@@ -15,7 +15,7 @@
 <div class="row">
 
     <div class="col-5">
-        <div class="">
+      <div class="card" id="wh" style="width:80%;">
             <div class="card-header" style="background-color: #192A56; color:white;">
                 Currency Converter
             </div>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="col-7">
-        <div class="">
+      <div class="card" id="wh" style="width:80%;">
 
             <table class="table table-hover" id="rates">
             <thead style="background-color: #192A56; color:white;">
@@ -159,6 +159,7 @@ if(request.status==200){
 var result=JSON.parse(request.response);
 
 var ar_len=Object.keys(result.rates).length;
+ar_len-=3;
 
               for(var i=0; i<=ar_len;i++){
                 var c_date=result.rates[i]["date"];
@@ -177,14 +178,95 @@ alert("Request wasn't successful, Please try again later")
 
 }
 
+function justChina(){
+  var url="https://dev.kwayisi.org/apis/forex/ghs/chf";
+    
+let request = new XMLHttpRequest();
+request.open("GET",url);
+request.send();
+request.onload = () =>{
+  if(request.status==200){
+
+                var result=JSON.parse(request.response);
+
+                var c_date=result["date"];
+                 var c_rate=result["rate"];
+
+                 console.log(c_rate+" "+c_date);
+
+                 document.getElementById("date_4").innerHTML=c_date;
+                 document.getElementById("rate_4").innerHTML=c_rate;
+
+  }
+  else{
+                document.getElementById("date_4").innerHTML="request ERROR";
+                 document.getElementById("rate_4").innerHTML="request ERROR";
+
+  }
+}
+}
+
+function justJapan(){
+  var url="https://dev.kwayisi.org/apis/forex/jpy/ghs";
+    
+let request = new XMLHttpRequest();
+request.open("GET",url);
+request.send();
+request.onload = () =>{
+  if(request.status==200){
+
+                var result=JSON.parse(request.response);
+
+                var c_date=result["date"];
+                 var c_rate=result["rate"];
+
+                 console.log(c_rate+" "+c_date);
+
+                 document.getElementById("date_3").innerHTML=c_date;
+                 document.getElementById("rate_3").innerHTML=c_rate;
+
+  }
+  else{
+                document.getElementById("date_3").innerHTML="request ERROR";
+                 document.getElementById("rate_3").innerHTML="request ERROR";
+
+  }
+}
+}
 
 
 
 function Currency_con(cur_from,cur_to,amnt){
+  if(cur_from=="chf"&&cur_to=="gbp"||cur_from=="gbp"&&cur_to=="chf"){
+    document.getElementById("to_msg").innerHTML="Sorry Not Available";
+  }
+  else{
  amnt=parseFloat(amnt);
+ var url;
+
+if(cur_from=="chf"&&cur_to=="ghs"){
+  let tempfrm= cur_to;
+  let tempto=cur_from;
+
+  cur_from=tempfrm;
+  cur_to=tempto;
+  url="https://dev.kwayisi.org/apis/forex/"+cur_from+"/"+cur_to;
+}
+else if(cur_from=="ghs"&&cur_to=="chf"){
+ let tempfrm= cur_to;
+  let tempto=cur_from;
+
+  cur_from=tempfrm;
+  cur_to=tempto;
+  url="https://dev.kwayisi.org/apis/forex/"+cur_from+"/"+cur_to;
+}
+
+else{
+  url="https://dev.kwayisi.org/apis/forex/"+cur_from+"/"+cur_to;
+}
+
+
     var result;
-    
-    var url="https://dev.kwayisi.org/apis/forex/"+cur_from+"/"+cur_to;
     
 let request = new XMLHttpRequest();
 request.open("GET",url);
@@ -207,11 +289,14 @@ alert("Request wasn't successful, Please try again")
 }
 
 }
+}
 
 
 
 
 Currency_table();
+justChina();
+justJapan();
 
 document.getElementById("con_vert").addEventListener("click",convertion);
 
