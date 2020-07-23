@@ -2,6 +2,7 @@ var amnt;
 var c_tax;
 var tax;
 var n_amnt;
+var arg;
 
 //..............................
 var nhil;
@@ -56,11 +57,16 @@ document.getElementById("paye_out").value=c_tax.toFixed(2);
 }
 
 //calculate CST
-function CST(amnt){
-
+function CST(amnt,arg){
+     amnt=parseFloat(amnt);
     if(amnt!=""){
-        amnt=parseFloat(amnt);
-    result=amnt*.09;
+       if(arg==1){
+            result=amnt*.09;
+       }
+       else{
+           result=(amnt/109)*.09;
+       }
+   
     // result=result.toFixed(2)
 
     }
@@ -79,12 +85,13 @@ function flat(amnt){
 
     if(amnt!=""){
     // result=result.toFixed(2)
+
  amnt=parseFloat(amnt);
      console.log("flat after:"+amnt);
-
+    
     result=amnt*.03;
 console.log("flat:"+result);
-
+    
     }
     else{
         result=0;
@@ -98,10 +105,10 @@ return result;
 
 }
 
-function nhil_getfund(amnt,nhil){
-    var state=nhil;
+function nhil_getfund(amnt,arg){
+    
     amnt=parseFloat(amnt);
-    if(state==1){
+    if(arg==1){
 nhil= amnt*.025; 
 nhil+=nhil;
 
@@ -119,15 +126,29 @@ nhil+=nhil;
   return nhil;
 }
 
+//Value Added Tax
+function VAT(amnt,arg){
+     amnt=parseFloat(amnt);
+     if(arg==1){
+         result=amnt*.125;
+     }
+     else{
+         result=(amnt/112.5)*12.5;
+     }
+
+     return result;
+}
 
 
 //calculate vat on sales
-function v_sales(amnt){
+function v_sales(amnt,arg){
+
 if(amnt!=""){
 
-    amnt=parseFloat(amnt);
 
- 
+    amnt=parseFloat(amnt);
+if(arg==1){
+  
 //  console.log("the one:"+amnt);
 
  //calc CST
@@ -147,7 +168,7 @@ amnt+=cst;
 nhil=nhil_getfund(amnt,1);
  amnt+=nhil;
  
- amnt+=CST(cst);
+ amnt+=CST(cst,1);
 
 
  
@@ -165,7 +186,52 @@ else{
  document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
  document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
  
- result=amnt*.125;
+ result=amnt*.125;  
+}
+else{
+  //reverse
+  vat=VAT(amnt,2);
+  amnt-=vat;
+   nhil=nhil_getfund(amnt,2);
+   console.log("vat Nhil:"+nhil);
+
+   cst=document.getElementById("cst_in").value;
+
+   if(cst>0){
+       let c_vat = VAT(cst,2);
+       cst-=c_vat;
+       n_amnt= (cst/114)*100;
+
+       cst-=n_amnt;
+
+       var n_cst= (cst/14)*9;
+       let n_nhil=cst-n_cst;
+       n_nhil/=2;
+
+       console.log("nhil and GETfund:"+n_nhil);
+        console.log("cst:"+n_cst);
+   
+  nhil+=n_nhil;
+
+        document.getElementById("cst_out").value=n_cst.toFixed(2);
+   
+   document.getElementById("cst_payable").innerHTML="&#8373;"+n_cst.toFixed(2);
+
+   }
+   else{
+       cst=0;
+   }
+   
+
+   document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
+   document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
+
+
+  result+=vat;
+ 
+  
+}
+ 
 //  console.log("this one:"+result); 
 }
 else{
@@ -177,23 +243,45 @@ document.getElementById("vat_s_vat").value=result.toFixed(2);
 }
 
 
+
 //calculate vat on purchases
-function v_purchases(amnt){
+function v_purchases(amnt,arg){
     if(amnt!=""){
 
         amnt=parseFloat(amnt);
+if(arg!=1){
+
+    if(document.getElementById("flat_in").value==""){
+        flat_p=0;
+    }
+    else{
+    flat_p=document.getElementById("flat_in").value;
+    // console.log("flat b4 parse:"+flat_p);
+        flat_p=parseFloat(flat_p);
+//    console.log("flat aft parse:"+flat_p);
+        flat_p=flat(flat_p);
+   }
+   amnt-=flat_p;
+   
+vat=VAT(amnt,2);
+ amnt-=vat;
+
+ nhil= nhil_getfund(amnt,2);
+
+
+
+}
+else{
 
  nhil=nhil_getfund(amnt,1)
-
+console.log(nhil);
  amnt+=nhil;
 
  nhil=nhil/2;
  
- document.getElementById("vat_p_nhil").value=nhil.toFixed(2);
- document.getElementById("vat_p_getfunds").value=nhil.toFixed(2);
+ 
 
-
- result=amnt*.125;
+ result=VAT(amnt,1);
  console.log("result b4 flat:"+result);
 
  
@@ -214,6 +302,11 @@ console.log("flat aft parse:"+flat_p);
  
 
  result=result.toFixed(2);
+    }
+
+    document.getElementById("vat_p_nhil").value=nhil.toFixed(2);
+ document.getElementById("vat_p_getfunds").value=nhil.toFixed(2);
+
 
     }
     else{
@@ -311,16 +404,6 @@ document.getElementById("wh_taxable_out").value=amnt.toFixed(2);
 }
 
 
-
-
-
-
-
-
-
-
-
-
 function calc_paye(){
     var in_amnt= document.getElementById("paye_in").value;
     if(amnt==""|| amnt==0){
@@ -343,31 +426,62 @@ function calc_paye(){
 
 
     function calc_vat(){
+var sales_v= document.getElementById("sales_in").value;
+      var purchase_v= document.getElementById("purchase_in").value;
+
+        if(document.getElementById("sales_inclusive").checked == true&&document.getElementById("purchase_inclusive").checked == true){
+            sales_v=v_sales(sales_v,2);
+            purchase_v=v_purchases(purchase_v,2);
+
+        }
+
+        else if(document.getElementById("sales_inclusive").checked == true){
+//sales inclusive
+        sales_v=v_sales(sales_v,2);
+
+        purchase_v=v_purchases(purchase_v,1);
+        purchase_v=parseFloat(purchase_v);
+
+        }
+        else if(document.getElementById("purchase_inclusive").checked == true){
+//purchase inclusive
+            purchase_v=v_purchases(purchase_v,2);
+
+             sales_v=v_sales(sales_v,1);
+             sales_v=parseFloat(sales_v);
+
+        }
+
+        else{
+//Exclusive
+        
 
         if(document.getElementById("sales_in").value!=""){
-        var sales_v= document.getElementById("sales_in").value;
+        // var sales_v= document.getElementById("sales_in").value;
             // sales_v=parseFloat(sales_v);
-                sales_v=v_sales(sales_v);
+                sales_v=v_sales(sales_v,1);
                 sales_v=parseFloat(sales_v);
 
         }
         else{
-            sales_v=v_sales(0);
+            sales_v=v_sales(0,1);
         }
        
         if(document.getElementById("purchase_in").value!=""){
 
-        var purchase_v= document.getElementById("purchase_in").value;
+  
         // purchase_v=parseFloat(purchase_v);
         console.log("standard"+purchase_v);
-        purchase_v=v_purchases(purchase_v);
+        purchase_v=v_purchases(purchase_v,1);
         purchase_v=parseFloat(purchase_v);
         }
         else{
-            purchase_v=v_purchases(0);
+            purchase_v=v_purchases(0,1);
         }
 
-        if (sales_v==0){
+        
+    }
+    if (sales_v==0){
            payable =purchase_v;
         }
         else if (purchase_v==0){
@@ -376,7 +490,6 @@ function calc_paye(){
         else{
             payable = sales_v - purchase_v;
         }
-
 
 
 
