@@ -130,25 +130,23 @@ nhil+=nhil;
 function VAT(amnt,arg){
      amnt=parseFloat(amnt);
      if(arg==1){
-         result=amnt*.125;
+         vat=amnt*.125;
      }
      else{
-         result=(amnt/112.5)*12.5;
+         vat=(amnt/112.5)*12.5;
      }
 
-     return result;
+     return vat;
 }
 
 
 //calculate vat on sales
 function v_sales(amnt,arg){
 
-if(amnt!=""){
 
-
-    amnt=parseFloat(amnt);
+    
 if(arg==1){
-  
+  amnt=parseFloat(amnt);
 //  console.log("the one:"+amnt);
 
  //calc CST
@@ -161,6 +159,7 @@ if(cst==""){
 else{
     cst=parseFloat(cst);
 }
+
 amnt+=cst;
 
 // console.log("after:"+amnt);
@@ -186,26 +185,55 @@ else{
  document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
  document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
  
- result=amnt*.125;  
+ result=VAT(amnt,1);
+ console.log("standard:"+result);
+ alert("whats up standard");
 }
+
 else{
+    
+
+//    alert("whats up reverse");
+    if(amnt==""){
+        amnt=0;
+         
+    }
+    
+    amnt=parseFloat(amnt);
+    console.log("amnt:"+amnt);
   //reverse
   vat=VAT(amnt,2);
+  vat=parseFloat(vat);
+
+  console.log("vat:"+vat);
+ 
+ result=vat;
+  console.log("result b4 cst:"+result);
+
   amnt-=vat;
    nhil=nhil_getfund(amnt,2);
-   console.log("vat Nhil:"+nhil);
+   nhil=parseFloat(nhil);
 
    cst=document.getElementById("cst_in").value;
+   cst=parseFloat(cst);
+   console.log("CST"+cst);
 
    if(cst>0){
-       let c_vat = VAT(cst,2);
+        console.log("result b4"+result);
+
+       var c_vat = VAT(cst,0);
+       console.log("vat b4"+c_vat);
+
+       console.log("result after"+result);
+
+      
        cst-=c_vat;
        n_amnt= (cst/114)*100;
 
        cst-=n_amnt;
 
        var n_cst= (cst/14)*9;
-       let n_nhil=cst-n_cst;
+    var n_nhil=cst-n_cst;
        n_nhil/=2;
 
        console.log("nhil and GETfund:"+n_nhil);
@@ -217,30 +245,30 @@ else{
    
    document.getElementById("cst_payable").innerHTML="&#8373;"+n_cst.toFixed(2);
 
+//  
    }
    else{
        cst=0;
    }
-   
+   result+=c_vat;
 
    document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
    document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
 
 
-  result+=vat;
+  
+  console.log(result);
  
   
 }
+
+ console.log(result);
  
-//  console.log("this one:"+result); 
-}
-else{
-   result=0; 
-}
-   
 document.getElementById("vat_s_vat").value=result.toFixed(2);
  return result;
+//  console.log("this one:"+result); 
 }
+    
 
 
 
