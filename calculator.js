@@ -7,7 +7,7 @@ var arg;
 //..............................
 var nhil;
 var vat;
-var result;
+// var result;
 var sale_v;
 var flat_p;
 var cst;
@@ -58,6 +58,7 @@ document.getElementById("paye_out").value=c_tax.toFixed(2);
 
 //calculate CST
 function CST(amnt,arg){
+    let result;
      amnt=parseFloat(amnt);
     if(amnt!=""){
        if(arg==1){
@@ -82,7 +83,7 @@ return result;
 
 //calculate Flat
 function flat(amnt){
-
+let result
     if(amnt!=""){
     // result=result.toFixed(2)
 
@@ -142,10 +143,14 @@ function VAT(amnt,arg){
 
 //calculate vat on sales
 function v_sales(amnt,arg){
-
+let result
 
     
 if(arg==1){
+    if(amnt==""){
+        amnt=0;
+         
+    }
   amnt=parseFloat(amnt);
 //  console.log("the one:"+amnt);
 
@@ -187,7 +192,7 @@ else{
  
  result=VAT(amnt,1);
  console.log("standard:"+result);
- alert("whats up standard");
+//  alert("whats up standard");
 }
 
 else{
@@ -261,7 +266,7 @@ else{
  
   
 }
-
+result=parseFloat(result);
  console.log(result);
  
 document.getElementById("vat_s_vat").value=result.toFixed(2);
@@ -274,6 +279,7 @@ document.getElementById("vat_s_vat").value=result.toFixed(2);
 
 //calculate vat on purchases
 function v_purchases(amnt,arg){
+    let result;
     if(amnt!=""){
 
         amnt=parseFloat(amnt);
@@ -286,7 +292,7 @@ if(arg!=1){
     flat_p=document.getElementById("flat_in").value;
     // console.log("flat b4 parse:"+flat_p);
         flat_p=parseFloat(flat_p);
-//    console.log("flat aft parse:"+flat_p);
+   console.log("flat aft parse:"+flat_p);
         flat_p=flat(flat_p);
    }
    amnt-=flat_p;
@@ -296,7 +302,7 @@ vat=VAT(amnt,2);
 
  nhil= nhil_getfund(amnt,2);
 
-
+result=parseFloat(vat);
 
 }
 else{
@@ -343,6 +349,7 @@ console.log("flat aft parse:"+flat_p);
     }
     
 document.getElementById("vat_p_vat").value=result;
+
 return result;
 }
 
