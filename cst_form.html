@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href="b4vtabs.css" rel="stylesheet" type="text/css"/>
+<link href="b4vtabs.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<table>
+<tbody>
+<tr>
+<td>Gross Revenue</td>
+<td><input type="number" id="box1"/></td>
+<td><input type="number" readonly/></td>
+</tr>
+
+<tr>
+  <td>Supplies of Prepaid Recharge</td>
+  <td><input type="number" id="box2"/></td>
+  <td><input type="number" readonly/></td>
+  </tr>
+
+  <tr>
+    <td>Sum Box 2 and Box 3</td>
+    <td></td>
+    <td><input type="number" id="box3" readonly/></td>
+    </tr>
+
+    <tr>
+      <td>Wholesale Revenue</td>
+      <td><input type="number" id="box4"/></td>
+      <td></td>
+      </tr> 
+
+      <tr>
+        <td>Non-Communication Service Revenue</td>
+        <td><input type="number" id="box5"/></td>
+        <td></td>
+        </tr>
+
+        <tr>
+          <td>Sum Box 5 and Box 6</td>
+          <td></td>
+          <td><input type="number" id="box6"/></td>
+          </tr>
+          <tr>
+            <td>Net Revenue (Box 4 less Box 7)</td>
+            <td></td>
+            <td><input type="number" id="box7"/></td>
+            </tr>
+
+            <tr>
+              <td>Rate of Tax</td>
+              <td></td>
+              <td><input type="number" id="box8"/></td>
+              </tr>
+
+              <tr>
+                <td>CST Payable (Box 8 Multiplied by Box 9)</td>
+                <td></td>
+                <td><input type="number" id="box9"/></td>
+                </tr>
+
+</tbody>
+
+</table>
+
+
+</body>
+
+<script>
+
+  //Box 1 Gross revenue
+document.getElementById('box1').addEventListener('input',function(){
+    
+let bx1=parseFloat(this.value);
+
+//get suppliers of prepaid recharge
+let bx2=document.getElementById('box2').value;
+if(bx2==""){
+  bx2=0;
+}
+bx2=parseFloat(bx2);
+
+document.getElementById('box3').value= (bx1+bx2).toFixed(2);
+
+});
+
+//Box 2 Supplies of prepaid
+document.getElementById('box2').addEventListener('input',function(){
+
+  let bx2=parseFloat(this.value);
+
+  //get gross revenue
+  let bx1=document.getElementById('box1').value;
+if(bx1==""){
+  bx1=0;
+}
+bx1=parseFloat(bx1);
+
+
+document.getElementById('box3').value= (bx1+bx2).toFixed(2);
+
+
+});
+
+//Box 4 wholesale Revenue
+document.getElementById('box4').addEventListener('input',function(){
+  let bx4=parseFloat(this.value);
+
+  //get non CST revenue
+  let bx5=document.getElementById('box5').value;
+if(bx5==""){
+  bx5=0;
+}
+bx5=parseFloat(bx5);
+
+//get non CST revenue
+let bx3=document.getElementById('box3').value;
+if(bx3==""){
+  bx3=0;
+}
+bx3=parseFloat(bx3);
+
+document.getElementById('box6').value= (bx4+bx5+bx3).toFixed(2);
+
+});
+
+
+document.getElementById('box5').addEventListener('input',function(){
+  let bx5=parseFloat(this.value);
+
+  //get non CST revenue
+  let bx6=document.getElementById('box6').value;
+if(bx6==""){
+  bx6=0;
+}
+bx6=parseFloat(bx6);
+
+//get non CST revenue
+let bx3=document.getElementById('box3').value;
+if(bx3==""){
+  bx3=0;
+}
+bx3=parseFloat(bx3);
+
+document.getElementById('box6').value= (bx5+bx6+bx3).toFixed(2);
+
+});
+
+
+
+document.getElementById('box3').addEventListener('change',function(){
+alert('hehe');
+});
+
+document
+</script>
+
+</html>
+
