@@ -1,331 +1,2415 @@
 <style>
-  #primary, .primary-1 {
-  width:100%;
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  
+  input[type=number] {
+  width:50px;
+  height:50px;
+      -moz-appearance:textfield; /* Firefox */
+  }
+  
+  input[type=number], input[type=radio]{
+  width:50px;
+  height:50px;
+  }
+  
+  td label font{
+  color:#313787;
+  }
+  td label{
+  font-weight:600px;
+  color: #120E43;
+  }
+  
+  @media(max-width: 768px){
+  .paye{
+  min-width:100%;
+  }
+  .com-menu{
+  display:none;
+  }
   }
   </style>
-
-         <div class="row">
-      
-   
-    <div class="col-md-9">
-     
-      
-      
-          <div class="card official_" style="min-width:100%;">
-           <div class="card-body">
-          <!-- Beginning of CARD body-->
-           <div class="tab-content">
-          <!-- Lost TIN-->
-          <article class="tab-pane container active" id="tab1">
-            <h3>CUSTOMS PROCEDURE CODES</h3>
-<section>
+  <div class="com-menu">
+  <div class="gdlr-core-pbf-sidebar-left gdlr-core-column-extend-left  financity-sidebar-area gdlr-core-column-15 gdlr-core-pbf-sidebar-padding  gdlr-core-line-height"><div class="gdlr-core-sidebar-item gdlr-core-item-pdlr"><div id="nav_menu-15" class="widget widget_nav_menu financity-widget"><div class="menu-online_tools-container"><ul id="menu-online_tools" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7469"><a href="https://peepmodellingagency.com/devtest/online-tools/tax-calculators/">Tax Calculators</a>
+  <ul class="sub-menu">
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7468"><a href="https://peepmodellingagency.com/devtest/online-tools/tax-calculators/pay-as-you-earn/">Pay As You Earn</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7466"><a href="https://peepmodellingagency.com/devtest/online-tools/tax-calculators/withholding/">VAT Withholding</a></li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7467"><a href="https://peepmodellingagency.com/devtest/online-tools/tax-calculators/value-added-tax/">Value Added Tax</a></li>
+  </ul>
+  </li>
+  <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7486"><a href="https://peepmodellingagency.com/devtest/online-tools/verify-tin/">Verify TIN</a></li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7473"><a href="https://www.ghana.gov.gh/mdas/abaf62bd39/">File and Make Payments</a></li>
+  <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7474"><a href="https://play.google.com/store/apps/details?id=com.authentix.androidapp&amp;hl=en">Tax Stamp Authenticator</a></li>
+  </ul></div></div><div id="custom_html-3" class="widget_text widget widget_custom_html financity-widget"><div class="textwidget custom-html-widget"></div></div><div id="custom_html-4" class="widget_text widget widget_custom_html financity-widget"><div class="textwidget custom-html-widget"></div></div><div id="text-27" class="widget widget_text financity-widget">			<div class="textwidget"><div class="gdlr-core-widget-box-shortcode " style="color: #ffffff ;padding: 35px 35px 15px;background-color: #313787 ;">
+  <div class="gdlr-core-widget-box-shortcode-content">
+  <p><span style="letter-spacing: 1px; font-weight: 600; font-size: 15px;">GET TIN FORM</span> <i class="fa fa-file-pdf-o" style="font-size: 13px ;color: #FAD02E ;margin-left: 10px ;"></i><span class="gdlr-core-space-shortcode" style="margin-top: 10px ;"></span><span style="color: #a3a9f6;">Download the TIN form from here</span></p>
+  </div>
+  <p><a class="gdlr-core-widget-box-shortcode-link" href="https://demo.goodlayers.com/financity/wp-content/uploads/2017/09/Untitled-document.pdf" target="_blank" rel="noopener noreferrer"></a></p></div>
+  <p>&nbsp;</p>
+  <div class="gdlr-core-widget-box-shortcode " style="color: #3b3b3b; padding: 35px 35px 15px; border: 2px solid #313787;">
+  <h3 class="gdlr-core-widget-box-shortcode-title" style="color: #3e4494;">Need Help ?</h3>
+  <p>Please feel free to contact us for your Customs classifications and validation</p>
+  <div class="gdlr-core-widget-box-shortcode-content">
+  <span style="font-size: 16px;"><i class="fa fa-phone" style="font-size: 16px; color: #FAD02E; margin-right: 10px;"></i> <a href="#">0242435662</a></span><br>
+  <span style="font-size: 16px;"><i class="fa fa-phone" style="font-size: 16px; color: #FAD02E; margin-right: 10px;"></i> <a href="#">0242435663</a></span><br>
+  <span style="font-size: 16px;"><i class="fa fa-envelope-open-o" style="font-size: 16px; color: #FAD02E; margin-right: 10px;"></i> <a href="#">info@gra.gov.gh</a></span></div>
+  </div>
+  </div>
+      </div></div></div>
+  </div>
+  <div class="table-wrapper">
+  <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr"><div class="gdlr-core-title-item-title-wrap "><h3 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 22px ;font-weight: 600 ;text-transform: none ;color: #313787 ;">PAYE<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h3></div><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">This calculator helps you to compute your tax liability on input of your Chargeable Income.</span></div>
   
-  <table class="table table-hover">
-    <thead>
-<tr>
-<th scope="col">S/N</th>
-<th scope="col">DESCRIPTION</th>
-<th scope="col">CODE</th>
-</tr>
-    </thead>
-    <tr>
-      <td >1</td>
-      <td >Transit of Petroleum Product from Bond</td>
-      <td >89RO1</td>
-      </tr>
-      <tr>
-        <td >2</td>
-        <td >Re-export following warehousing</td>
-        <td >37X00</td>
-        </tr>
-        <tr>
-          <td >3</td>
-          <td >Grants and Aids</td>
-          <td >40A00</td>
-          </tr>
-
-          <tr>
-            <td >4</td>
-            <td >Fish Caught by Ghanaian Registered Vessels in Ghanaian Waters</td>
-            <td >00N01</td>
-            </tr>
-
-            <tr>
-              <td >5</td>
-              <td >Direct Home Consumption</td>
-              <td >40D01</td>
-              </tr>
-
-              <tr>
-                <td >6</td>
-                <td >Direct Entry into Ship's Stores</td>
-                <td >90S00</td>
-                </tr>
-                <tr>
-                  <td >7</td>
-                  <td >Direct Entry into Free Zone</td>
-                  <td >90Z00</td>
-                  </tr>
-
-                  <tr>
-                    <td >8</td>
-                    <td >Certified Entry Following Short Landing</td>
-                    <td >40D03</td>
-                    </tr>
-
-    <tbody>
-
-    </tbody>
-
-  </table>
-</section>
-
-          </article>
-
-          <article class="tab-pane container" id="tab2">
-             <h3>CUSTOMS REGIMES CODE</h3>
-<section>
-  
-  <table class="table table-hover">
-   
+  <div class="gdlr-core-accordion-item gdlr-core-item-pdlr gdlr-core-item-pdb  gdlr-core-accordion-style-box-icon gdlr-core-allow-close-all"><div class="gdlr-core-accordion-item-tab clearfix"><div class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon  gdlr-core-skin-e-background gdlr-core-skin-border"></div><div class="gdlr-core-accordion-item-content-wrapper"><h4 class="gdlr-core-accordion-item-title gdlr-core-js ">Chargeable Income:</h4><div class="gdlr-core-accordion-item-content" style="display: none;"><p>This is the total assessable income minus the <a href="https://peepmodellingagency.com/devtest/domestic-tax/other-tax-information/personal-tax-relief/">total reliefs</a>.</p>
+  </div></div></div><div class="gdlr-core-accordion-item-tab clearfix"><div class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon  gdlr-core-skin-e-background gdlr-core-skin-border"></div><div class="gdlr-core-accordion-item-content-wrapper"><h4 class="gdlr-core-accordion-item-title gdlr-core-js ">Assessable Income: </h4><div class="gdlr-core-accordion-item-content" style="display: none;"><p>This is the sum of the basic salary, cash allowances, other allowances including non-cash benefits and excess bonus (if any)</p>
+  </div></div></div>
+  <div class="gdlr-core-accordion-item-tab clearfix"><div class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon  gdlr-core-skin-e-background gdlr-core-skin-border"></div><div class="gdlr-core-accordion-item-content-wrapper"><h4 class="gdlr-core-accordion-item-title gdlr-core-js ">PAYE Table: </h4><div class="gdlr-core-accordion-item-content" style="display: none;">
+  <div class="table-wrapper">
+  <table class="fl-table">
+  <h3 id="tabCap"></h3>
     <thead>
       <tr>
-        <th scope="col">S/N</th>
-        <th scope="col">DESCRIPTION</th>
-        <th scope="col">CODE</th>
+        <th>Range</th>
+        <th>Chargeable Income(Gh₵)</th>
+      <th>Rate(%)</th>
+      <th>Tax Charged(Gh₵)</th>
+      <th>Cummlative Chargeable <br> Income(Gh₵)</th>
       </tr>
-
+      
     </thead>
-
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td >Warehousing Following Temporal Export</td>
-        <td >75</td>
-        </tr>
-        <tr>
-          <td >2</td>
-          <td >Warehousing Following Temporal Export</td>
-          <td >72</td>
-          </tr>
-          <tr>
-            <td >3</td>
-            <td >Transit From Bond</td>
-            <td >89</td>
-            </tr>
-            <tr>
-              <td >4</td>
-              <td >Transit/Transparent following Transit/Transhipment</td>
-              <td >88</td>
-              </tr>
-              <tr>
-                <td >5</td>
-                <td >Transit/Transparent/CoastWise Removal</td>
-                <td >80</td>
-                </tr>
-                <tr>
-                  <td >6</td>
-                  <td >Temporary Export Following Warehousing</td>
-                  <td >27</td>
-                  </tr>
-                  <tr>
-                    <td >7</td>
-                    <td >Temporary Admission Following Warehouse</td>
-                    <td >57</td>
-                    </tr>
-                    <tr>
-                      <td >8</td>
-                      <td >Temporary Admission Following Free Zone</td>
-                      <td >59</td>
-                      </tr>
-                      <tr>
-                        <td >9</td>
-                        <td >Temporary Admission</td>
-                        <td >50</td>
-                        </tr>
-                        <tr>
-                          <td >10</td>
-                          <td >Reserved</td>
-                          <td >00</td>
-                          </tr>
-                          <tr>
-                            <td >11</td>
-                            <td >Re-import Following Temporary Export</td>
-                            <td >62</td>
-                            </tr>
-                            <tr>
-                              <td >12</td>
-                              <td >Re-import Following Direct Export</td>
-                              <td >61</td>
-                              </tr>
-                              <tr>
-                                <td >13</td>
-                                <td >Re-export Following Warehousing</td>
-                                <td >37</td>
-                                </tr>
-                                <tr>
-                                  <td >14</td>
-                                  <td >Re-export Following Temporary Admission</td>
-                                  <td >35</td>
-                                  </tr>
-                                  <tr>
-                                    <td >15</td>
-                                    <td >Re-export Following Home Consumption</td>
-                                    <td >34</td>
-                                    </tr>
-                                    <tr>
-                                      <td >16</td>
-                                      <td >Other Re-export</td>
-                                      <td >39</td>
-                                      </tr>
-                                      <tr>
-                                        <td >17</td>
-                                        <td >Other Operations</td>
-                                        <td >99</td>
-                                        </tr>
-                                        <tr>
-                                          <td >18</td>
-                                          <td >Import Into Home Consumption Following Warehousing</td>
-                                          <td >47</td>
-                                          </tr>
-                                          <tr>
-                                            <td >19</td>
-                                            <td >Import Into Home Consumption Following Temporary Admission</td>
-                                            <td >45</td>
-                                            </tr>
-                                            <tr>
-                                              <td >20</td>
-                                              <td >Import Into Home Consumption Following Free Zone/Duty Free Stores</td>
-                                              <td >49</td>
-                                              </tr>
-                                              <tr>
-                                                <td >21</td>
-                                                <td >Import Into Home Consumption (Direct import)</td>
-                                                <td >40</td>
-                                                </tr>
-                                                <tr>
-                                                  <td >22</td>
-                                                  <td >Home Consumption Following Coast-wise Transhipment/Transit</td>
-                                                  <td >48</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td >23</td>
-                                                    <td >Export Following Free Zones</td>
-                                                    <td >19</td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td >24</td>
-                                                      <td >Entry Into Free Zones/Ships Stores/Duty Free Stores From Domestic Market</td>
-                                                      <td >94</td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td >25</td>
-                                                        <td >Entry Into Free Zones/Ships Stores/Duty Free Following Warehouse</td>
-                                                        <td >97</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td >26</td>
-                                                          <td >Entry Into Free Zones/Ship Stores/Duty Free Following Temporary Import</td>
-                                                          <td >95</td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td >27</td>
-                                                            <td >Direct Temporary Export</td>
-                                                            <td >20</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td >28</td>
-                                                              <td >Direct Re-export For Goods Landed But not Entered</td>
-                                                              <td >30</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td >29</td>
-                                                                <td >Direct Export</td>
-                                                                <td >10</td>
-                                                                </tr>
-                                                                <tr>
-                                                                  <td >30</td>
-                                                                  <td >Direct Entry Into Free Zones/Ship's Stores Duty Free Stores</td>
-                                                                  <td >90</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td >31</td>
-                                                                    <td >Direct Entry Into <span style="color:red">Boned</span> warehouse</td>
-                                                                    <td >70</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                      <td >32</td>
-                                                                      <td >Bond To Bond (Warehousing)</td>
-                                                                      <td >77</td>
-                                                                      </tr>
-    </tbody>
-
-  </table>
     
-
-</section>
-
-          </article>
-         
-                  <!--End of CARD body-->
-           </div>
-          </div>
-      </div>
-     
-   
+    <tbody>
+  <tr>
+    <td>First</td>
+    <td id="charge1">319.00</td>
+    <td>0</td>
+    <td id="fst_tax_ch"></td>
+    <td id="fst_cum_inc"></td>
+  </tr>
+  
+  <tr>
+    <td>Next</td>
+    <td id="charge2">100.00</td>
+    <td>5.00</td>
+    <td id="scn_tax_ch"></td>
+    <td id="scn_cum_inc"></td>
+  </tr>
+  
+  <tr>
+    <td>Next</td>
+    <td id="charge3">120.00</td>
+    <td>10.00</td>
+    <td id="thd_tax_ch"></td>
+    <td id="thd_cum_inc"></td>
+  </tr>
+  
+  <tr>
+    <td>Next</td>
+    <td id="charge4">3,000.00</td>
+    <td>17.5</td>
+    <td id="frt_tax_ch"></td>
+    <td id="frt_cum_inc"></td>
+  </tr>
+  
+  <tr>
+    <td>Next</td>
+    <td id="charge5">16,461.00</td>
+    <td>25.00</td>
+    <td id="fif_tax_ch"></td>
+    <td id="fif_cum_inc"></td>
+  </tr>
+  
+  <tr>
+    <td>Exceeding</td>
+    <td id="charge6">20,000.00</td>
+    <td>30.00</td>
+    <td id="lst_tax_ch"></td>
+    <td id="lst_cum_inc"></td>
+  </tr>
+  
+    </tbody>
+  
+    </table>
+  </div>
+  </div></div></div>
+  </div>
   </div>
   
-  <div class="col-md-3">
-    
-    <header style="background-color:#192A56;width: 87%;border-radius: 3px;color: white;margin-bottom: -7px;margin-left: 10px;"><h3 style="
-      color: white;
-      text-align: center;
-  ">CUSTOMS CODES</h3> </header>
-        <ul class="nav nav-tabs right-tabs" style="
-      border-radius: 3px;
-      height: auto;
-  ">
-         <ul class="nav nav-tabs left-tabs">
-           <li class="nav-item">
-                <a class="nav-link active" href="#tab1" data-toggle="tab">Customs Procedure code</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#tab2" data-toggle="tab">Customs Regimes code</a>
-              </li>
+  <div class="table-wrapper" align="center">
+  
+      <!-- pay as you earn  -->
+  <div class="card paye">
+  <div class="card-header">
+  <!-- header -->
+  <h5 style="color:white;">PAY AS YOU EARN</h5>
+  </div>
+  
+  <div class="card-body">
+  <!-- body  -->
+  
+  <div class="row">
+      <div class="col-sm-6">
+        <div class="card" id="paye">
+          <div class="card-body">
+            <h6 class="card-title"><p>  Please Enter Only the <strong class="attend">Chargeable Monthly</strong> income</p></h6>
+            <input type="number" id="paye_in" class="form-control">
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Pay As You Earn <span class="attend">Monthly</span> Payable(Gh₵)</h6>
+            <label type="number"><h3 id="paye_out"></h3></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <br>
+      <button class="btn btn-info btn-block" onclick="calc_paye()"> Calculate</button>
+  
+  
+  </div>
+  </div>
+  <!--.......................Start new feature....................-->
+  <div class="row">
+    <div class="col-sm-6 card">
+      <div class="form-wrapper">
+        <div class="wow fadeInRight animated" data-wow-duration="2s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s; animation-name: fadeInRight;">
+  
+          <div class="panel panel-skin">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="fa fa-pencil-square-o fa-flip-horizontal"></span></h3>
+            </div>
+  
+  
+  
+            <div class="card ">
+  
              
   
   
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label><font color="#313787"><b>Income &amp; Other Allowances</b></font></label>
+                  </div>
+                </div>
+  
+                <hr>
+   <!-- period -->
+<label>Please select Period</label>
+                      <table>
+                        <tr>
+                          <td width="50">Monthly<input type="radio" name="period" value="month" checked></td>
+                          <td width="50">Annual<input type="radio" name="period" value="year"></td>
+                        </tr>
+                      </table>
+<table>
+                        <tr>
+                          <td width="50">Am on Pension</td>
+                          <td width="50"><input type="checkbox" id="ssf_chk" style="width:50px; height:50px; margin-left: 30%;" value="year"></td>
+                        </tr>
+                      </table>
+<label>What Percentage do you Pay?</label>
+<table >
+                        <tr>
+                          <td width="50">5.5%<input type="radio" name="ssf_type" value="5.5" checked></td>
+                          <td width="50">5.0%<input type="radio" name="ssf_type" value="5.0" ></td>
+                        </tr>
+                      </table>
   
   
-    </ul>
-  <header class="tab-header" ><h4>Related Topics</h4></header>
-  <ul class="nav nav-tabs left-tabs">
-  <li>
-      <a href="https://gra.gov.gh/customs/customs-the-basics/" style="background-color:##E1DA00;width: 99%;border-radius: 3px;margin-bottom: -7px;margin-left: 10px;"><h5>Customs The Basics</h5></a>
-      </li>
-
-    <li>
-      <a href="https://gra.gov.gh/customs/importing-goods/" style="background-color:##E1DA00;width: 99%;border-radius: 3px;margin-bottom: -7px;margin-left: 10px;"><h5>Importing Goods</h5></a>
-      </li>
-      
-      <li>
-      <a href="https://gra.gov.gh/customs/importing-vehicles/" style="background-color:##E1DA00;width: 99%;border-radius: 3px;margin-bottom: -7px;margin-left: 10px;"><h5>Importing Vehicles</h5></a>
-      </li>
-      
-      <li>
-      <a href="https://gra.gov.gh/customs/import-prohibitions/" style="background-color:##E1DA00;width: 99%;border-radius: 3px;margin-bottom: -7px;margin-left: 10px;"><h5>Import Prohibitions</h5></a>
-      </li>
-      
-      <li>
-      <a href="https://gra.gov.gh/customs/passengers-obligations-at-customs/" style="background-color:##E1DA00;width: 99%;border-radius: 3px;margin-bottom: -7px;margin-left: 10px;"><h5>Passengers Obligations</h5></a>
-      </li>
-  </ul>
-  </ul>
   
+  
+  
+  
+  
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <label>Basic Salary</label>
+                      <input type="number" name="basicsalary" id="basicsalary" class="form-control input-md">
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label>Cash Allowance</label>
+                      <input type="number" name="cashallowance" id="cshAllow" class="form-control input-md" data-rule="minlen:3" <="" div="">
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+            <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label>Other Allowance (Accommodation, Vehicle, etc)</label>
+                      <input type="number" name="otherallowance" id="othrAllow" class="form-control input-md">
+                    </div>
+                  </div>
+  
+                  </div>
+  
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label>Overtime (Junior Officers Only)</label>
+                      <input type="number" name="overtime" id="ovrTime" class="form-control input-md">
+                    </div>
+                  </div>
+                </div>
+  
+  
+                 
+  
+                   <div class="row">
+  
+                     <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label>Total Bonus</label>
+                      <input type="number" name="totalbonus" id="totlBonus" class="form-control input-md" data-rule="minlen:3" <="" div="">
+                  </div>
+                </div>
+              </div>
+                  
+  
+  
+                  
+  
+  
+  
+              <hr>
+              <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <label class="attend"><b>Other Reliefs</b></font></label>
+  <a href="https://peepmodellingagency.com/devtest/domestic-tax/other-tax-information/personal-tax-relief/" class="btn btn-sm btn-primary">Read About Reliefs</a>
+                  </div>
+                </div>
+  
+  
+                <hr>
+  
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+  
+  
+  
+                    <div class="container form-group">
+  <label>Complete form below for reliefs</label>
+                      <input type="number" class="form-control" id="reliefs" value="0" disabled><hr>
+  
+                      <!-- married -->
+                      <table>
+                        <tr>
+                          <td width="70"><label>Are you Married?</label></td>
+                          <td width="30"><input type="checkbox" style="width:50px; height:50px; margin-left: 30%; margin-left: 30%;"  id="iMarry" /></td>
+                        </tr>
+                      </table>
+                      <!-- children -->
+                      <table>
+                        <tr>
+                          <td width="70"><label>How many Kids do you have schooling?</label></td>
+                          <td width="30"><select class="this_select" id="kids" style="width: -webkit-fill-available;"   >
+                            <option selected disabled>Select Number of wards</option>
+  <option value="0">None</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </select>
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- Disabled -->
+                      <table>
+                        <tr>
+                          <td width="70"><label>Are you disabled, and is GRA aware?</label></td>
+                          <td width="30"><input type="checkbox" style="width:50px; height:50px; margin-left: 30%;" id="disable" /></td>
+                        </tr>
+                      </table>
+                      <!-- old aged -->
+                      <table>
+                        <tr>
+                          <td width="70"><label>Are you 60 years or above?</label></td>
+                          <td width="30"><input type="checkbox" style="width:50px; height:50px; margin-left: 30%;" id="above60" /></td>
+                        </tr>
+                      </table>
+                      <!-- dependants -->
+                       <!-- dependants -->
+                      <table>
+                        <tr>
+                          <td width="70"><label>How many relatives depend on you, excluding spouse and children</label></td>
+                          <td width="30"><select class="this_select" id="dependants"  style="width: -webkit-fill-available;" >
+                            <option selected disabled>Select Number of Dependants</option>
+<option value="0">None</option>
+  
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                          </select></td>
+                        </tr>
+                      </table>
+                     
+                      
+                      
+  
+  
+                      
+                    </div>
+                  </div>
+                </div>
+  <hr>
+                <div class="row">
+  
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+  <label>3rd Tier Rate</label>
+  <input type="number" placeholder="rate is already in %" name="thirdtier" id="tier3" class="form-control" maxlength="4" />
+  
+                
+                                 </div>
+                </div>
+              </div>
+  
+  
+    <button id="go" class="btn btn-info btn-block">Calculate</button>
+  
+                
+  
+       
+              
+            </div>
+          </div>
+  
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6 card">
+      <div class="form-wrapper">
+        <div class="wow fadeInRight animated" data-wow-duration="2s" data-wow-delay="0.2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s; animation-name: fadeInRight;">
+  
+          <div class="panel panel-skin">
+            <div class="panel-heading">
+              <h3 class="panel-title"><span class="fa fa-check"></span></h3>
+            </div>
+  
+  
+  
+            <div class="panel-body">
+  
+  
+  
+  
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Employee SSF (5.5%):</font></label></td>
+                          <td width="30%"><label id="employeeSSF"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Employer's SSF (13%):</font></label></td>
+                          <td width="30%"><label id="employerSSF"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">SSNIT (1ST Tier):</font></label></td>
+                          <td width="30%"><label id="ssnit1stTier"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Approved Trustee (2ND Tier):</font></label></td>
+                          <td width="30%"><label id="approvedTrustee"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Provident Fund (3RD Tier):</font></label></td>
+                          <td width="30%"><label id="providentFund"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Final Tax on Bonus:</font></label></td>
+                          <td width="30%"><label id="finalTaxBonus"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Final Tax on Overtime:</font></label></td>
+                          <td width="30%"><label id="finalTaxonoverTime"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Excess Bonus:</font></label></td>
+                          <td width="30%"><label id="excessBonus"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+                   <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Total Assessable Income:</font></label></td>
+                          <td width="30%"><label id="totalAssessableIncome"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+           
+  
+  
+  
+  
+                <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">Total Reliefs:</font></label></td>
+                          <td width="30%"><label id="totalReliefs"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><h6><font color="#1F6000">Chargeable Income:</font></h6></td>
+                          <td width="30%"><h6 class="attend" id="chargeableIncome"></h6></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr >
+                          <td width="70%"><h6><font >PAYE:</font></h6></td>
+                          <td width="30%" ><h6 class="attend" id="payeResult"></h6></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+  
+                    <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000">NET PAY:</font></label></td>
+                          <td width="30%"><label id="netPayresult"></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+  
+                       <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12">
+  
+                    <div class="form-group">
+                      <table>
+                        <tbody><tr>
+                          <td width="70%"><label><font color="#1F6000"></font></label></td>
+                          <td width="30%"><label><font color="red"></font></label></td>
+                        </tr>
+                      </tbody></table>
+  
+                    </div>
+                  </div>
+  
+                  </div>
+  
+  
+               
+  
+                  
+               
+  
+                   <div style="height:25px"></div>
+  
+                   <!--
+  
+  
+                  <p> <font color="#002060">You can click the link below to access our <a href="payroll.html" target="blank" rel="noopener"><u><b><font color="red">payroll computation platform</b></u></a></font></p>
+  
+                -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
+  <!--.......................End new Feature......................--> 
   
   
-  </div>
+  <script>
+   var numForm=new Intl.NumberFormat('en-us', { style: 'currency', currency: 'ghc' });
   
+  
+  var amnt;
+  var c_tax;
+  let c_tax_t;
+  var tax;
+  var n_amnt;
+  var arg;
+  
+  //..............................
+  var nhil;
+  var vat;
+  // var result;
+  var sale_v;
+  var flat_p;
+  var cst;
+  var payable
+  
+  //
+  function PAYE(amnt,period){
+      amnt=parseFloat(amnt);
+      var x = document.getElementById("tabCap");
+ //chargeable........................
+      let charge1=document.getElementById('charge1');
+      let charge2=document.getElementById('charge2');
+      let charge3=document.getElementById('charge3');
+      let charge4=document.getElementById('charge4');
+      let charge5=document.getElementById('charge5');
+      let charge6=document.getElementById('charge6');
+      if(period=='year'){
+          //set chargeable..................
+        charge1.innerHTML=numForm.format(3828);
+        charge2.innerHTML=numForm.format(1200);
+        charge3.innerHTML=numForm.format(1440);
+        charge4.innerHTML=numForm.format(36000);
+        charge5.innerHTML=numForm.format(197532);
+        charge6.innerHTML=numForm.format(240000);
+
+          x.innerHTML="Annual";
+          if(amnt>20000){
+              n_amnt=amnt-20000;
+              c_tax_t=n_amnt*.30;
+              c_tax=c_tax_t+4657.25;
+          
+              //.......Tax charged
+          
+              document.getElementById('fst_tax_ch').innerHTML=0;
+              document.getElementById('scn_tax_ch').innerHTML=numForm.format(5*12);
+              document.getElementById('thd_tax_ch').innerHTML=numForm.format(12*12);
+              document.getElementById('frt_tax_ch').innerHTML=numForm.format(525*12);
+              document.getElementById('fif_tax_ch').innerHTML=numForm.format(4115.25*12);
+              document.getElementById('lst_tax_ch').innerHTML=numForm.format(c_tax_t*12);
+              
+          
+              //...........Cumm TAX
+              document.getElementById('fst_cum_inc').innerHTML=numForm.format(319*12);
+              document.getElementById('scn_cum_inc').innerHTML=numForm.format(419*12);
+              document.getElementById('thd_cum_inc').innerHTML=numForm.format(539*12);
+              document.getElementById('frt_cum_inc').innerHTML=numForm.format(3539*12);
+              document.getElementById('fif_cum_inc').innerHTML=numForm.format(20000*12);
+              document.getElementById('lst_cum_inc').innerHTML=numForm.format(20000+n_amnt*12);
+              
+          }
+          else if(amnt>3539 && amnt<=20000){
+          n_amnt=amnt-3539;
+          c_tax_t=n_amnt*.25;
+          c_tax=c_tax_t+542;
+          
+           //.......Tax charged
+              document.getElementById('fst_tax_ch').innerHTML=0;
+              document.getElementById('scn_tax_ch').innerHTML=numForm.format(5*12);
+              document.getElementById('thd_tax_ch').innerHTML=numForm.format(12*12);
+              document.getElementById('frt_tax_ch').innerHTML=numForm.format(525*12);
+              document.getElementById('fif_tax_ch').innerHTML=numForm.format(c_tax_t*12);
+              document.getElementById('lst_tax_ch').innerHTML=0;
+           
+          
+          
+           //...........Cumm TAX
+           document.getElementById('fst_cum_inc').innerHTML=numForm.format(319*12);
+           document.getElementById('scn_cum_inc').innerHTML=numForm.format(419*12);
+           document.getElementById('thd_cum_inc').innerHTML=numForm.format(539*12);
+           document.getElementById('frt_cum_inc').innerHTML=numForm.format(3539*12);
+           document.getElementById('fif_cum_inc').innerHTML=numForm.format(3539+n_amnt*12);
+           document.getElementById('lst_cum_inc').innerHTML=0;
+          
+           
+          
+          
+          }
+          
+          else if(amnt>539 && amnt<=3539){
+          n_amnt=amnt-539;
+          c_tax_t=n_amnt*.175;
+          c_tax=c_tax_t+17;
+          
+          //.......Tax charged
+          document.getElementById('fst_tax_ch').innerHTML=numForm.format(0);
+              document.getElementById('scn_tax_ch').innerHTML=numForm.format(5*12);
+              document.getElementById('thd_tax_ch').innerHTML=numForm.format(12*12);
+              document.getElementById('frt_tax_ch').innerHTML=numForm.format(c_tax_t*12);
+              document.getElementById('fif_tax_ch').innerHTML=0;
+              document.getElementById('lst_tax_ch').innerHTML=0;
+           
+          
+          
+          //...........Cumm TAX
+          document.getElementById('fst_cum_inc').innerHTML=numForm.format(319*12);
+              document.getElementById('scn_cum_inc').innerHTML=numForm.format(419*12);
+              document.getElementById('thd_cum_inc').innerHTML=numForm.format(539*12);
+              document.getElementById('frt_cum_inc').innerHTML=numForm.format(539+n_amnt*12);
+              document.getElementById('fif_cum_inc').innerHTML=0;
+              document.getElementById('lst_cum_inc').innerHTML=0;
+          
+          }
+          
+          else if(amnt>419 && amnt<=539) {
+          n_amnt=amnt-419;
+          c_tax_t=n_amnt*.10;
+          c_tax=c_tax_t+5;
+          
+          //.......Tax charged
+          document.getElementById('fst_tax_ch').innerHTML=0;
+              document.getElementById('scn_tax_ch').innerHTML=numForm.format(5*12);
+              document.getElementById('thd_tax_ch').innerHTML=numForm.format(c_tax_t*12);
+              document.getElementById('frt_tax_ch').innerHTML=0;
+              document.getElementById('fif_tax_ch').innerHTML=0;
+              document.getElementById('lst_tax_ch').innerHTML=0;
+          
+          
+          
+          //...........Cumm TAX
+          document.getElementById('fst_cum_inc').innerHTML=numForm.format(319*12);
+              document.getElementById('scn_cum_inc').innerHTML=numForm.format(419*12);
+              document.getElementById('thd_cum_inc').innerHTML=numForm.format(419+n_amnt*12);
+              document.getElementById('frt_cum_inc').innerHTML=0;
+              document.getElementById('fif_cum_inc').innerHTML=0;
+              document.getElementById('lst_cum_inc').innerHTML=0;
+          
+          
+          }
+          
+          else if(amnt>319 && amnt<=419){
+          n_amnt=amnt-319;
+          c_tax_t=n_amnt*.05;
+          c_tax=c_tax_t+0;
+          
+          //.......Tax charged
+          document.getElementById('fst_tax_ch').innerHTML=0;
+              document.getElementById('scn_tax_ch').innerHTML=numForm.format(c_tax_t*12);
+              document.getElementById('thd_tax_ch').innerHTML=0;
+              document.getElementById('frt_tax_ch').innerHTML=0;
+              document.getElementById('fif_tax_ch').innerHTML=0;
+              document.getElementById('lst_tax_ch').innerHTML=0;
+           
+          
+          
+          //...........Cumm TAX
+          document.getElementById('fst_cum_inc').innerHTML=numForm.format(319*12);
+              document.getElementById('scn_cum_inc').innerHTML=numForm.format(319+n_amnt*12);
+              document.getElementById('thd_cum_inc').innerHTML=0;
+              document.getElementById('frt_cum_inc').innerHTML=0;
+              document.getElementById('fif_cum_inc').innerHTML=0;
+              document.getElementById('lst_cum_inc').innerHTML=0;
+          
+          
+          }
+          
+          else{
+              c_tax=0
+          
+              //.......Tax charged
+              document.getElementById('fst_tax_ch').innerHTML=numForm.format(c_tax);
+              document.getElementById('scn_tax_ch').innerHTML=0;
+              document.getElementById('thd_tax_ch').innerHTML=0;
+              document.getElementById('frt_tax_ch').innerHTML=0;
+              document.getElementById('fif_tax_ch').innerHTML=0;
+              document.getElementById('lst_tax_ch').innerHTML=0;
+          
+          
+          
+          //...........Cumm TAX
+              document.getElementById('fst_cum_inc').innerHTML=0;
+              document.getElementById('scn_cum_inc').innerHTML=0;
+              document.getElementById('thd_cum_inc').innerHTML=0;
+              document.getElementById('frt_cum_inc').innerHTML=0;
+              document.getElementById('fif_cum_inc').innerHTML=0;
+              document.getElementById('lst_cum_inc').innerHTML=0;
+          
+          }
+          
+      }
+      else{
+          x.innerHTML="Month";
+//set chargeable..................
+        charge1.innerHTML=numForm.format(3828/12);
+        charge2.innerHTML=numForm.format(1200/12);
+        charge3.innerHTML=numForm.format(1440/12);
+        charge4.innerHTML=numForm.format(36000/12);
+        charge5.innerHTML=numForm.format(197532/12);
+        charge6.innerHTML=numForm.format(240000/12);
+  if(amnt>20000){
+      n_amnt=amnt-20000;
+      c_tax_t=n_amnt*.30;
+      c_tax=c_tax_t+4657.25;
+  
+      //.......Tax charged
+  
+      document.getElementById('fst_tax_ch').innerHTML=0;
+      document.getElementById('scn_tax_ch').innerHTML=numForm.format(5);
+      document.getElementById('thd_tax_ch').innerHTML=numForm.format(12);
+      document.getElementById('frt_tax_ch').innerHTML=numForm.format(525);
+      document.getElementById('fif_tax_ch').innerHTML=numForm.format(4115.25);
+      document.getElementById('lst_tax_ch').innerHTML=numForm.format(c_tax_t);
+      
+  
+      //...........Cumm TAX
+      document.getElementById('fst_cum_inc').innerHTML=numForm.format(319);
+      document.getElementById('scn_cum_inc').innerHTML=numForm.format(419);
+      document.getElementById('thd_cum_inc').innerHTML=numForm.format(539);
+      document.getElementById('frt_cum_inc').innerHTML=numForm.format(3539);
+      document.getElementById('fif_cum_inc').innerHTML=numForm.format(20000);
+      document.getElementById('lst_cum_inc').innerHTML=numForm.format(20000+n_amnt);
+      
+  }
+  else if(amnt>3539 && amnt<=20000){
+  n_amnt=amnt-3539;
+  c_tax_t=n_amnt*.25;
+  c_tax=c_tax_t+542;
+  
+   //.......Tax charged
+      document.getElementById('fst_tax_ch').innerHTML=0;
+      document.getElementById('scn_tax_ch').innerHTML=numForm.format(5);
+      document.getElementById('thd_tax_ch').innerHTML=numForm.format(12);
+      document.getElementById('frt_tax_ch').innerHTML=numForm.format(525);
+      document.getElementById('fif_tax_ch').innerHTML=numForm.format(c_tax_t);
+      document.getElementById('lst_tax_ch').innerHTML=0;
+   
+  
+  
+   //...........Cumm TAX
+   document.getElementById('fst_cum_inc').innerHTML=numForm.format(319);
+   document.getElementById('scn_cum_inc').innerHTML=numForm.format(419);
+   document.getElementById('thd_cum_inc').innerHTML=numForm.format(539);
+   document.getElementById('frt_cum_inc').innerHTML=numForm.format(3539);
+   document.getElementById('fif_cum_inc').innerHTML=numForm.format(3539+n_amnt);
+   document.getElementById('lst_cum_inc').innerHTML=0;
+  
+   
+  
+  
+  }
+  
+  else if(amnt>539 && amnt<=3539){
+  n_amnt=amnt-539;
+  c_tax_t=n_amnt*.175;
+  c_tax=c_tax_t+17;
+  
+  //.......Tax charged
+  document.getElementById('fst_tax_ch').innerHTML=numForm.format(0);
+      document.getElementById('scn_tax_ch').innerHTML=numForm.format(5);
+      document.getElementById('thd_tax_ch').innerHTML=numForm.format(12);
+      document.getElementById('frt_tax_ch').innerHTML=numForm.format(c_tax_t);
+      document.getElementById('fif_tax_ch').innerHTML=0;
+      document.getElementById('lst_tax_ch').innerHTML=0;
+   
+  
+  
+  //...........Cumm TAX
+  document.getElementById('fst_cum_inc').innerHTML=numForm.format(319);
+      document.getElementById('scn_cum_inc').innerHTML=numForm.format(419);
+      document.getElementById('thd_cum_inc').innerHTML=numForm.format(539);
+      document.getElementById('frt_cum_inc').innerHTML=numForm.format(539+n_amnt);
+      document.getElementById('fif_cum_inc').innerHTML=0;
+      document.getElementById('lst_cum_inc').innerHTML=0;
+  
+  }
+  
+  else if(amnt>419 && amnt<=539) {
+  n_amnt=amnt-419;
+  c_tax_t=n_amnt*.10;
+  c_tax=c_tax_t+5;
+  
+  //.......Tax charged
+  document.getElementById('fst_tax_ch').innerHTML=0;
+      document.getElementById('scn_tax_ch').innerHTML=numForm.format(5);
+      document.getElementById('thd_tax_ch').innerHTML=numForm.format(c_tax_t);
+      document.getElementById('frt_tax_ch').innerHTML=0;
+      document.getElementById('fif_tax_ch').innerHTML=0;
+      document.getElementById('lst_tax_ch').innerHTML=0;
+  
+  
+  
+  //...........Cumm TAX
+  document.getElementById('fst_cum_inc').innerHTML=numForm.format(319);
+      document.getElementById('scn_cum_inc').innerHTML=numForm.format(419);
+      document.getElementById('thd_cum_inc').innerHTML=numForm.format(419+n_amnt);
+      document.getElementById('frt_cum_inc').innerHTML=0;
+      document.getElementById('fif_cum_inc').innerHTML=0;
+      document.getElementById('lst_cum_inc').innerHTML=0;
+  
+  
+  }
+  
+  else if(amnt>319 && amnt<=419){
+  n_amnt=amnt-319;
+  c_tax_t=n_amnt*.05;
+  c_tax=c_tax_t+0;
+  
+  //.......Tax charged
+  document.getElementById('fst_tax_ch').innerHTML=0;
+      document.getElementById('scn_tax_ch').innerHTML=numForm.format(c_tax_t);
+      document.getElementById('thd_tax_ch').innerHTML=0;
+      document.getElementById('frt_tax_ch').innerHTML=0;
+      document.getElementById('fif_tax_ch').innerHTML=0;
+      document.getElementById('lst_tax_ch').innerHTML=0;
+   
+  
+  
+  //...........Cumm TAX
+  document.getElementById('fst_cum_inc').innerHTML=numForm.format(319);
+      document.getElementById('scn_cum_inc').innerHTML=numForm.format(319+n_amnt);
+      document.getElementById('thd_cum_inc').innerHTML=0;
+      document.getElementById('frt_cum_inc').innerHTML=0;
+      document.getElementById('fif_cum_inc').innerHTML=0;
+      document.getElementById('lst_cum_inc').innerHTML=0;
+  
+  
+  }
+  
+  else{
+      c_tax=0
+  
+      //.......Tax charged
+      document.getElementById('fst_tax_ch').innerHTML=numForm.format(c_tax);
+      document.getElementById('scn_tax_ch').innerHTML=0;
+      document.getElementById('thd_tax_ch').innerHTML=0;
+      document.getElementById('frt_tax_ch').innerHTML=0;
+      document.getElementById('fif_tax_ch').innerHTML=0;
+      document.getElementById('lst_tax_ch').innerHTML=0;
+  
+  
+  
+  //...........Cumm TAX
+      document.getElementById('fst_cum_inc').innerHTML=0;
+      document.getElementById('scn_cum_inc').innerHTML=0;
+      document.getElementById('thd_cum_inc').innerHTML=0;
+      document.getElementById('frt_cum_inc').innerHTML=0;
+      document.getElementById('fif_cum_inc').innerHTML=0;
+      document.getElementById('lst_cum_inc').innerHTML=0;
+  
+  }
+      }
+  
+  
+  
+  
+  
+  // alert(c_tax);
+  document.getElementById("paye_out").innerHTML=numForm.format(c_tax); 
+  return c_tax;
+  }
+  
+  //calculate CST
+  function CST(amnt,arg){
+      let result;
+       amnt=parseFloat(amnt);
+      if(amnt!=""){
+         if(arg==1){
+              result=amnt*.05;
+         }
+         else{
+             result=(amnt/105)*.05;
+         }
+     
+      // result=result.toFixed(2)
+  
+      }
+      else{
+          result=0;
+      }
+      
+      document.getElementById("cst_out").value=result.toFixed(2);
+   document.getElementById("cst_payable").innerHTML=numForm.format(result);
+  return result;
+  
+  }
+  
+  //calculate Flat
+  function flat(amnt){
+  let result
+      if(amnt!=""){
+      // result=result.toFixed(2)
+  
+   amnt=parseFloat(amnt);
+       //console.log("flat after:"+amnt);
+      
+      result=amnt*.03;
+  //console.log("flat:"+result);
+      
+      }
+      else{
+          result=0;
+      }
+  
+  //console.log("flat b4:"+amnt);
+         
+      document.getElementById("vat_p_flat").value=result.toFixed(2);
+      
+  return result;
+  
+  }
+  
+  function nhil_getfund(amnt,arg){
+      
+      amnt=parseFloat(amnt);
+      if(arg==1){
+  nhil= amnt*.025; 
+  nhil+=nhil;
+  
+      }
+      else{
+      nhil=(amnt/105)*5;
+      nhil/=2;
+  
+      }
+  
+  
+     
+  
+  
+    return nhil;
+  }
+  
+  //Value Added Tax
+  function VAT(amnt,arg){
+       amnt=parseFloat(amnt);
+       if(arg==1){
+           vat=amnt*.125;
+       }
+       else{
+           vat=(amnt/112.5)*12.5;
+       }
+  
+       return vat;
+  }
+  
+  
+  //calculate vat on sales
+  function v_sales(amnt,arg){
+  let result
+  
+      
+  if(arg==1){
+      if(amnt==""){
+          amnt=0;
+           
+      }
+    amnt=parseFloat(amnt);
+  //  console.log("the one:"+amnt);
+  
+   //calc CST
+    cst=document.getElementById("cst_in").value;
+  //  
+  // console.log("that cst:"+cst);
+  if(cst==""){
+      cst=0;
+  }
+  else{
+      cst=parseFloat(cst);
+  }
+  
+  amnt+=cst;
+  
+  // console.log("after:"+amnt);
+  //get NHIL and getFund 
+  nhil=nhil_getfund(amnt,1);
+   amnt+=nhil;
+   
+   amnt+=CST(cst,1);
+  
+  
+   
+       
+      //  console.log("that one:"+amnt);
+  if(nhil==0){
+      nhil=0;
+  }
+  else{
+      nhil=nhil/2;
+  }
+   
+   
+  
+   document.getElementById("vat_s_nhil").value=new Intl.NumberFormat('en-us', { style: 'currency', currency: 'ghc' }).format(nhil);
+   document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
+   
+   result=VAT(amnt,1);
+   //console.log("standard:"+result);
+  //  alert("whats up standard");
+  }
+  
+  else{
+      
+  
+  //    alert("whats up reverse");
+      if(amnt==""){
+          amnt=0;
+           
+      }
+      
+      amnt=parseFloat(amnt);
+      //console.log("amnt:"+amnt);
+    //reverse
+    vat=VAT(amnt,2);
+    vat=parseFloat(vat);
+  
+    //console.log("vat:"+vat);
+   
+   result=vat;
+    //console.log("result b4 cst:"+result);
+  
+    amnt-=vat;
+     nhil=nhil_getfund(amnt,2);
+     nhil=parseFloat(nhil);
+  
+     cst=document.getElementById("cst_in").value;
+     cst=parseFloat(cst);
+     //console.log("CST"+cst);
+  
+     if(cst>0){
+          //console.log("result b4"+result);
+  
+         var c_vat = VAT(cst,0);
+         //console.log("vat b4"+c_vat);
+  
+         //console.log("result after"+result);
+  
+        
+         cst-=c_vat;
+         n_amnt= (cst/114)*100;
+  
+         cst-=n_amnt;
+  
+         var n_cst= (cst/14)*9;
+      var n_nhil=cst-n_cst;
+         n_nhil/=2;
+  
+         //console.log("nhil and GETfund:"+n_nhil);
+          //console.log("cst:"+n_cst);
+     
+    nhil+=n_nhil;
+  
+          document.getElementById("cst_out").value=n_cst.toFixed(2);
+     
+     document.getElementById("cst_payable").innerHTML="&#8373;"+n_cst.toFixed(2);
+  
+  //  
+     }
+     else{
+         cst=0;
+     }
+     result+=c_vat;
+  
+     document.getElementById("vat_s_nhil").value=nhil.toFixed(2);
+     document.getElementById("vat_s_getfunds").value=nhil.toFixed(2);
+  
+  
+    
+    //console.log(result);
+   
+    
+  }
+  result=parseFloat(result);
+   //console.log(result);
+   
+  document.getElementById("vat_s_vat").value=result.toFixed(2);
+   return result;
+  //  console.log("this one:"+result); 
+  }
+      
+  
+  
+  
+  //calculate vat on purchases
+  function v_purchases(amnt,arg){
+      let result;
+      if(amnt!=""){
+  
+          amnt=parseFloat(amnt);
+  if(arg!=1){
+  
+      if(document.getElementById("flat_in").value==""){
+          flat_p=0;
+      }
+      else{
+      flat_p=document.getElementById("flat_in").value;
+      // console.log("flat b4 parse:"+flat_p);
+          flat_p=parseFloat(flat_p);
+     //console.log("flat aft parse:"+flat_p);
+          flat_p=flat(flat_p);
+     }
+     amnt-=flat_p;
+     
+  vat=VAT(amnt,2);
+   amnt-=vat;
+  
+   nhil= nhil_getfund(amnt,2);
+  
+  result=parseFloat(vat);
+  
+  }
+  else{
+  
+   nhil=nhil_getfund(amnt,1)
+  //console.log(nhil);
+   amnt+=nhil;
+  
+   nhil=nhil/2;
+   
+   
+  
+   result=VAT(amnt,1);
+   //console.log("result b4 flat:"+result);
+  
+   
+   if(document.getElementById("flat_in").value==""){
+       flat_p=0;
+   }
+   else{
+   flat_p=document.getElementById("flat_in").value;
+   //console.log("flat b4 parse:"+flat_p);
+       flat_p=parseFloat(flat_p);
+  //console.log("flat aft parse:"+flat_p);
+       flat_p=flat(flat_p);
+  }
+  
+   result+=flat_p;
+   //console.log("vat_P:"+result);
+   
+   
+  
+   result=result.toFixed(2);
+      }
+  
+      document.getElementById("vat_p_nhil").value=nhil.toFixed(2);
+   document.getElementById("vat_p_getfunds").value=nhil.toFixed(2);
+  
+  
+      }
+      else{
+  
+          result=0;
+      }
+      
+  document.getElementById("vat_p_vat").value=result;
+  
+  return result;
+  }
+  
+  
+  
+  
+  
+  //withholding VAT
+  function wht_VAT(amnt){
+      amnt=parseFloat(amnt);
+  
+      nhil_fund= nhil_getfund(amnt,1);
+      amnt+=nhil_fund;
+      // console.log(amnt);
+  
+      vat=amnt*.125;
+      var w_vat=amnt*.07;
+      //  console.log(w_vat);
+  
+      tax=amnt+vat;
+      tax-=w_vat;
+      nhil_fund/=2;
+  
+      // console.log(tax);
+  
+      document.getElementById("wh_vat_out").value=vat.toFixed(2);
+  if(w_vat>0){
+  document.getElementById("wh_amnt_out").style.borderColor ="lightgreen";
+              document.getElementById("wh_amnt_out").style.borderWidth ="thick";
+  }
+  else{
+  document.getElementById("wh_amnt_out").style.borderColor ="";
+              document.getElementById("wh_amnt_out").style.borderWidth ="";
+  }
+  
+  
+       document.getElementById("wh_amnt_out").value=w_vat.toFixed(2);
+      document.getElementById("wh_nhil_out").value=nhil_fund.toFixed(2);
+      document.getElementById("wh_getF_out").value=nhil_fund.toFixed(2);
+  
+      document.getElementById("wh_taxable_out").value=amnt.toFixed(2);
+  
+      document.getElementById("payable_out").value=tax.toFixed(2);
+      
+  
+  }
+  
+  // reverse withholding VAT
+  function rvs_wVAT(amnt){
+  
+      amnt=parseFloat(amnt);
+  
+      //calc VAT
+      vat=amnt/112.5;
+      //  console.log(vat.toFixed(2));
+      vat*=12.5;
+  //    console.log("The VAT ankasa:"+vat.toFixed(2));
+  
+  
+      amnt-=vat;
+      w_vat=amnt*.07;
+      // console.log(w_vat.toFixed(2));
+     
+  
+      nhil_fund= nhil_getfund(amnt,0);
+      // console.log(nhil_fund.toFixed(2));
+      var payable=(amnt+vat)-w_vat;
+      
+      document.getElementById("wh_vat_out").value=vat.toFixed(2);
+  if(w_vat>0){
+  document.getElementById("wh_amnt_out").style.borderColor ="lightgreen";
+              document.getElementById("wh_amnt_out").style.borderWidth ="thick";
+  }
+  else{
+  document.getElementById("wh_amnt_out").style.borderColor ="";
+              document.getElementById("wh_amnt_out").style.borderWidth ="";
+  }
+       document.getElementById("wh_amnt_out").value=w_vat.toFixed(2);
+      document.getElementById("wh_nhil_out").value=nhil_fund.toFixed(2);
+      document.getElementById("wh_getF_out").value=nhil_fund.toFixed(2);
+  
+  document.getElementById("wh_taxable_out").value=amnt.toFixed(2);
+     
+  
+      document.getElementById("payable_out").value=numForm.format(payable);
+  
+  }
+  
+  
+  function calc_paye(){
+      var in_amnt= document.getElementById("paye_in").value;
+      if(amnt==""|| amnt==0){
+          document.getElementById("paye_in").style.borderColor ="red";
+          document.getElementById("paye_in").style.borderWidth ="thick";
+      }
+      else{
+          
+          document.getElementById("paye_in").style.borderColor ="";
+          document.getElementById("paye_in").style.borderWidth ="";
+          PAYE(in_amnt);
+      }
+      
+      }
+  
+  
+  
+  
+  
+  
+  
+      function calc_vat(){
+  var sales_v= document.getElementById("sales_in").value;
+        var purchase_v= document.getElementById("purchase_in").value;
+  
+          if(document.getElementById("sales_inclusive").checked == true&&document.getElementById("purchase_inclusive").checked == true){
+              sales_v=v_sales(sales_v,2);
+              purchase_v=v_purchases(purchase_v,2);
+  
+          }
+  
+          else if(document.getElementById("sales_inclusive").checked == true){
+  //sales inclusive
+          sales_v=v_sales(sales_v,2);
+  
+          purchase_v=v_purchases(purchase_v,1);
+          purchase_v=parseFloat(purchase_v);
+  
+          }
+          else if(document.getElementById("purchase_inclusive").checked == true){
+  //purchase inclusive
+              purchase_v=v_purchases(purchase_v,2);
+  
+               sales_v=v_sales(sales_v,1);
+               sales_v=parseFloat(sales_v);
+  
+          }
+  
+          else{
+  //Exclusive
+          
+  
+          if(document.getElementById("sales_in").value!=""){
+          // var sales_v= document.getElementById("sales_in").value;
+              // sales_v=parseFloat(sales_v);
+                  sales_v=v_sales(sales_v,1);
+                  sales_v=parseFloat(sales_v);
+  
+          }
+          else{
+              sales_v=v_sales(0,1);
+          }
+         
+          if(document.getElementById("purchase_in").value!=""){
+  
+    
+          // purchase_v=parseFloat(purchase_v);
+          //console.log("standard"+purchase_v);
+          purchase_v=v_purchases(purchase_v,1);
+          purchase_v=parseFloat(purchase_v);
+          }
+          else{
+              purchase_v=v_purchases(0,1);
+          }
+  
+          
+      }
+      if (sales_v==0){
+             payable =purchase_v;
+          }
+          else if (purchase_v==0){
+               payable =sales_v;
+          }
+          else{
+              payable = sales_v - purchase_v;
+          }
+  
+  
+  
+  
+  
+  
+  document.getElementById("vat_payable").innerHTML="&#8373;"+payable.toFixed(2);
+  
+  if(sales_v>0){
+      document.getElementById("vat_s_out").style.borderColor ="lightgreen";
+  document.getElementById("vat_s_out").style.borderWidth ="thick";
+  }else{
+      document.getElementById("vat_s_out").style.borderColor ="";
+  document.getElementById("vat_s_out").style.borderWidth ="";
+  }
+  if(purchase_v>0){
+      document.getElementById("vat_p_out").style.borderColor ="lightgreen";
+  document.getElementById("vat_p_out").style.borderWidth ="thick";
+  }
+  
+  document.getElementById("vat_s_out").value=sales_v.toFixed(2);
+  document.getElementById("vat_p_out").value=purchase_v.toFixed(2);
+  
+      //    console.log("payable:" +payable.toFixed(2));
+      //    console.log("sales:"+sales_v);
+      //    console.log("purchase:"+purchase_v);
+  
+  
+  
+          }
+  
+  
+      function calc_wh(){
+          amnt=document.getElementById("w_h").value;
+          if(amnt==""|| amnt==0){
+              document.getElementById("w_h").style.borderColor ="red";
+              document.getElementById("w_h").style.borderWidth ="thick";
+          }
+          else{
+              document.getElementById("w_h").style.borderColor ="";
+              document.getElementById("w_h").style.borderWidth ="";
+              if(document.getElementById("rvs_wh").checked == true){
+                  rvs_wVAT(amnt);
+  
+              }
+              else{
+                  wht_VAT(amnt);
+              }
+          }
+  
+      } 
+  
+  //new features.....................
+      //Fields
+    const basicSalary=document.getElementById('basicsalary');
+    const cashAllowance=document.getElementById('cshAllow');
+    const otherAllowance=document.getElementById('othrAllow');
+    const overTime=document.getElementById('ovrTime');
+    const totalBonus=document.getElementById('totlBonus');
+    const tier3=document.getElementById('tier3');
+    
+  
+    
+  
+    function Basic_sal(salary,period){
+      let ssf; //5.5%
+      let employer; //13 %
+      let firstTier; //13.5%
+      let approvedTrustee; //5%
+      let finalTaxBonus; //5%
+      let overTime; //5%
+  
+      //calculate
+      ssf =salary*0.055;
+      employer=salary*0.13;
+      firstTier =salary*0.135;
+      approvedTrustee= salary*0.05;
+      finalTaxBonus=salary*0.05;
+      overTime=salary*0.05;
+      
+      //Annual............................................................
+      if(period=='year'){
+        ssf*=12;
+        employer*=12;
+        firstTier*=12;
+        approvedTrustee*=12;
+        finalTaxBonus*=12;
+        overTime*=12;
+      }
+      //Annual............................................................
+  
+      let result= JSON.stringify({
+        "SSF":ssf,
+        "Employer":employer,
+        "FirstTier":firstTier,
+        "ApprovedTrust":approvedTrustee,
+        "FinalTaxBonus":finalTaxBonus,
+        "OverTime":overTime
+  
+      });
+  
+      return result;
+  
+    }
+  
+    //3rd tier
+    function Provident3rdTier(salary,rate,period){
+      let relf;
+      var b = /^\d+(\.\d{1,2})?$/.test(rate);
+      if(b){
+        if(rate>16.5){
+        alert("Rate is incorrect \n The 3rd tier's rate ranges between 1 - 16.5");
+      }
+      else{
+        relf=salary*(rate/100);
+  
+        //Annual
+        if(period=='year'){
+          relf*=12;
+        }
+         return relf;
+      }
+      }
+      else{
+        //console.log('Please Input Numbers at the 3rd tier portion\n Note! Result will exclude the 3rd Tier part');
+  
+        return 0;
+      }
+      
+     
+  
+    }
+  
+  //overtime
+    function Over_Time(bonus,period){
+      let res;
+      if (period=='year') {
+  res=bonus*0.05;
+       res*=12; 
+      } else {
+        res=bonus*0.05;
+        
+      }
+      return res;
+    }
+  
+    function ExcessBonus(salary,TotalBonus){
+  
+      let res;
+      let bonus;
+      const sal=salary*0.15;
+  
+      bonus=TotalBonus*0.05;
+      if(bonus>7.5){
+        bonus=7.5;
+      }
+      if(TotalBonus>sal){
+        res=TotalBonus-sal;
+        
+      }
+      else{
+        res=0;
+      }
+  
+      return [res,bonus];
+  
+    }
+  
+  // total assessable income
+    function Sum_up(incomes,period){
+      const size = incomes.length;
+      //console.log(incomes);
+      let res=0;
+      let income
+  
+      for(i=0;i<=size-1;i++){
+        //console.log(incomes[i]);
+  
+        if(incomes[i]>0){
+  
+          res+=incomes[i];
+        }
+  
+        //console.log(res);
+      }
+      if(period=='year'){
+        res*=12;
+      }
+  
+      return res;
+  
+    }
+  
+    //if married ...........................
+    function Marry(period,state){
+      let relf;
+      const cash=1200;
+      if(state==true){
+        //married
+        if(period=='year'){
+          relf=cash;
+        }
+        else{
+          relf=cash/12;
+        }
+  
+      }
+      else{
+        //!married
+      relf=0;
+  
+      }
+  
+      return relf;
+  
+    }
+  
+  
+  //Children and wards........................
+    function Wards(period,count){
+      let relf;
+      const cash=600;
+      if(count>3){
+        alert('The maximum number of wards for relief is 3!');
+        return 0;
+        }
+        else{
+        if(period=='year'){
+          //yearly
+          relf=count*cash;
+        }
+        else{
+          //monthly
+          relf=cash/12;
+          relf*=count;
+          
+        }
+        return relf;
+      }
+  
+      
+    }
+  
+    //Disabled ..............
+    function Disabled(period,state,salary){
+      let relf;
+      if(state==true){
+        //disabled
+       
+        
+        
+        
+        relf=salary*0.25;
+        if(period=='year'){
+          
+          relf*=12;
+        }
+          
+        
+      }
+      else{
+        //!disabled
+         let current;
+        if(salary==''){
+        current=sessionStorage.getItem('salary')*0.25;
+        relf=current;
+  if(period=='year'){
+  relf*=12;
+  }
+        //console.log(relf);
+        }
+        else{
+          relf=0;
+        }
+        
+  
+      }
+  sessionStorage.setItem('salary',salary);
+      return relf;
+    }
+    
+  
+    //Old aged..................................
+    function OldAged(period,state){
+      let relf;
+      const cash=1500;
+      if(state==true){
+      //Am old
+      if(period=='year'){
+        relf=cash;
+      }
+      else{
+        relf=cash/12;
+      }
+  
+      }
+      else{
+        //!old
+        relf=0;
+  
+      }
+  
+      return relf;
+    }
+  
+    //Dependants...................................
+    function Dependant(period,count){
+      let relf;
+      const cash=1000;
+      if(count>2){
+        alert('Relief is valid for a maximum of 2 people');
+      }
+      else{
+        if(period=='year'){
+          relf=cash*count;
+  
+        }
+        else{
+          relf=cash/12;
+          relf*=count;
+  
+        }
+        return relf;
+      }
+  
+      
+    }
+  
+  
+  
+  
+    //relief input field {disabled}
+    const deductRelief = document.getElementById('reliefs');
+  
+    //Acquire Elements
+    const married = document.querySelector("input[id=iMarry]");
+    const kids = document.getElementById("kids");
+    const aged = document.querySelector("input[id=above60]");
+    const disabled = document.querySelector("input[id=disable]");
+    const depend = document.getElementById("dependants");
+  
+    //sessions
+    //let chid=parseFloat(kids.value);
+    //let dep=parseFloat(depend.value);
+  
+    sessionStorage.setItem('kids',0);
+    sessionStorage.setItem('depends',0);
+  
+    //period
+    const Period = document.getElementsByName('period');
+
+    //ssnit
+    const ssf_chk=document.getElementById('ssf_chk');
+    const ssf_type=document.getElementsByName('ssf_type');
 
   
+        
+        //married listner................................
+        married.addEventListener('change', function() {
+          let reliefs = parseFloat(deductRelief.value);
+  
+        if (this.checked) {
+  
+          if(Period[0].checked){
+            reliefs+=Marry('month',true);
+            deductRelief.value=reliefs;
+          }
+          else{
+            //year
+             reliefs+=Marry('year',true);
+            deductRelief.value=reliefs;
+          }
+      
+        } 
+        else {
+          if(Period[0].checked){
+            reliefs-=Marry('month',true);
+            deductRelief.value=reliefs;
+          }
+          else{
+            //year
+             reliefs-=Marry('year',true);
+            deductRelief.value=reliefs;
+          }
+     
+        }
+      });
+  
+         //kids listner.............................
+      kids.addEventListener('change',function() {
+        let wards=this.value;
+       
+          let reliefs = parseFloat(deductRelief.value);
+          
+          if(sessionStorage.getItem('kids')!=0){
+              if(Period[0].checked){
+                        reliefs-=Wards('month',sessionStorage.getItem('kids'));
+                        deductRelief.value=parseFloat(reliefs);
+                      }
+                      else{
+                        //year
+                        reliefs-=Wards('year',sessionStorage.getItem('kids'));
+                        deductRelief.value=reliefs;
+                      }
+          }
+  
+        if (wards>0) {
+  
+          if(Period[0].checked){
+            reliefs+=Wards('month',wards);
+            deductRelief.value=reliefs;
+          }
+          else{
+            //year
+             reliefs+=Wards('year',wards);
+            deductRelief.value=reliefs;
+          }
+          sessionStorage.setItem('kids',wards);
+  
+      
+        } 
+        else {
+          if(Period[0].checked){
+            reliefs-=Wards('month',wards);
+            deductRelief.value=reliefs;
+          }
+          else{
+            //year
+             reliefs-=Wards('year',wards);
+            deductRelief.value=reliefs;
+          }
+            sessionStorage.setItem('kids',wards);
+        }
+      });
+  
+      //aged listner.....................................
+      aged.addEventListener('change', function() {
+          let reliefs = parseFloat(deductRelief.value);
+          if (this.checked) {
+  
+              if(Period[0].checked){
+                reliefs+=OldAged('month',true);
+                deductRelief.value=reliefs;
+              }
+              else{
+                //year
+                reliefs+=OldAged('year',true);
+                deductRelief.value=reliefs;
+              }
+  
+              } 
+              else {
+              if(Period[0].checked){
+                reliefs-=OldAged('month',true);
+                deductRelief.value=reliefs;
+              }
+              else{
+                //year
+                reliefs-=OldAged('year',true);
+                deductRelief.value=reliefs;
+              }
+  
+              }
+      });
+
+     function Pensioneer(){
+      if(ssf_chk.checked){
+ssf_type[0].disabled=true;
+ssf_type[1].disabled=true;
+
+//uncheck
+ssf_type[0].checked=false;
+ssf_type[1].checked=false;
+
+          }
+          else{
+            ssf_type[0].disabled=false;
+ssf_type[1].disabled=false;
+
+          }
+     }
+
+     basicSalary.addEventListener('input',function(){
+        let reliefs = parseFloat(deductRelief.value);
+          
+          
+             
+  if(disabled.checked){
+              if(Period[0].checked){
+              reliefs-=Disabled('month',false,basicSalary.value);
+                         
+                          deductRelief.value=reliefs;
+              }
+              else{
+                 reliefs-=Disabled('year',false,basicSalary.value);
+               
+               deductRelief.value=reliefs;
+              }
+  }
+   disabled.checked=false;
+  
+             
+             
+            
+  
+      });
+  
+      //disabled listner.....................................
+      disabled.addEventListener('change', function() {
+          let reliefs = parseFloat(deductRelief.value);
+          if(basicSalary.value==''){
+              alert('Add Basic salary first');
+  }
+          if(basicSalary.value==''&&sessionStorage.getItem('salary')>0){
+              alert('Add Basic salary first');
+              if(Period[0].checked){
+              reliefs-=Disabled('month',false,basicSalary.value);
+                          this.checked=false;
+                          deductRelief.value=reliefs;
+              }
+              else{
+                 reliefs-=Disabled('year',false,basicSalary.value);
+               this.checked=false;
+               deductRelief.value=reliefs;
+              }
+             
+             
+            }
+          if (this.checked) {
+            
+  
+          if(Period[0].checked){
+            reliefs+=Disabled('month',true,basicSalary.value);
+            deductRelief.value=reliefs;
+          }
+          else{
+            //year
+            reliefs+=Disabled('year',true,basicSalary.value);
+            deductRelief.value=reliefs;
+          }
+  
+          } 
+          else {
+          if(Period[0].checked){
+            reliefs-=Disabled('month',true,basicSalary.value);
+            deductRelief.value=reliefs;
+          }
+           else{
+            //year
+            reliefs-=Disabled('year',true,basicSalary.value);
+            deductRelief.value=reliefs;
+          }
+  
+          }
+      });
+  
+      //dependants listner...................................
+      depend.addEventListener('change', function() {
+        let rel=this.value;
+          let reliefs = parseFloat(deductRelief.value);
+  
+          if(sessionStorage.getItem('depends')!=0){
+              if(Period[0].checked){
+                        reliefs-=Dependant('month',sessionStorage.getItem('depends'));
+                        deductRelief.value=parseFloat(reliefs);
+                      }
+                      else{
+                        //year
+                        reliefs-=Dependant('year',sessionStorage.getItem('depends'));
+                        deductRelief.value=parseFloat(reliefs);
+                      }
+          }
+  
+  
+  
+          if (rel>0) {
+  
+            if(Period[0].checked){
+              reliefs+=Dependant('month',rel);
+              deductRelief.value=parseFloat(reliefs);
+            }
+            else{
+              //year
+              reliefs+=Dependant('year',rel);
+              deductRelief.value=parseFloat(reliefs);
+            }
+            sessionStorage.setItem('depends',rel);
+  
+            } 
+            else {
+            if(Period[0].checked){
+              reliefs-=Dependant('month',rel);
+              deductRelief.value=parseFloat(reliefs);
+            }
+            else{
+              //year
+              reliefs-=Dependant('year',rel);
+              deductRelief.value=parseFloat(reliefs);
+            }
+            sessionStorage.setItem('depends',rel);
+  
+            }
+      });
+  
+  
+      //period listner...................................
+      
+      for(var i = 0; i < Period.length; i++) {
+          Period[i].onclick = function () {
+            let reliefs = parseFloat(deductRelief.value);
+  //             if(this.checked){
+  // alert('Already checked');
+  // return 0;
+  // }
+  
+              if(this.value=='month'){
+                //monthly
+                reliefs/=12;
+  document.getElementById('go').click();
+              }
+              else{
+                //yearly
+                reliefs*=12;
+  document.getElementById('go').click();
+              }
+              deductRelief.value=reliefs;
+          };
+      }
+
+      //just for SSNIT
+      function justSSF(salary,period,rate){
+        let ssf;
+        let emp_ssf;
+        rate=parseFloat(rate);
+
+        alert(rate);
+      if(rate==5.5){
+      //Normal paying 5.5%
+      ssf=salary*(rate/100);
+      emp_ssf=salary*0.13;
+      }
+      else{
+        //Exceptional paying 5.0%
+        ssf=salary*(rate/100);
+        emp_ssf=salary*0.13;
+      }
+        //if it's for year
+      if(period=='year'){
+        ssf*=12;
+        emp_ssf*=12;
+      }
+
+      return JSON.stringify({
+        "SSF":ssf,
+        "Employer_SSF":emp_ssf
+      });
+      
+    } 
+  
+  
+  
+  
+  
+      //calculate
+     
+  
+      document.getElementById('go').addEventListener('click',function(){
+        let Returns;
+        let provident=0;
+        let excesBonus=0;
+        let Allowance=0;
+        let otherAllow=0;
+        let myReliefs=0;
+        let totalAssessIncome=0;
+        let chargeable=0;
+        let paye=0;
+        let netPay=0;
+  let OverTime=0;
+  let ssnit;
+  
+  
+  
+        if(Period[0].checked){
+          let time='month';
+          let rate;
+          //month.................................................
+          Returns=JSON.parse(Basic_sal(basicSalary.value,time));
+          provident=Provident3rdTier(basicSalary.value,tier3.value,time);
+          excesBonus= ExcessBonus(basicSalary.value,totalBonus.value);
+          Allowance= cashAllowance.value;
+          if(cashAllowance==''){
+            Allowance=0;
+          }
+  
+          otherAllow= otherAllowance.value;
+          if(otherAllowance==''){
+            otherAllow=0;
+          }
+
+          if(ssf_type[0].checked){
+            rate=ssf_type[0].value;
+          }
+          else if(ssf_type[1].checked){
+            rate=ssf_type[1].value;
+          }
+          else{
+            rate=0;
+          }
+
+          ssnit=JSON.parse(justSSF(basicSalary.value,time,rate));
+  
+          //total assessable income.......................
+        let basics=parseFloat(basicSalary.value);
+        Allowance=parseFloat(Allowance);
+        otherAllow=parseFloat(otherAllow);
+        let all=[basics,excesBonus[0],Allowance,otherAllow];
+        totalAssessIncome= Sum_up(all,time);
+  
+  
+          //deduct
+          myReliefs=ssnit.SSF;
+          if(tier3.value>0){
+            myReliefs+=Provident3rdTier(basicSalary.value,tier3.value,time);
+          }
+          if(deductRelief.value>0){
+            myReliefs+=parseFloat(deductRelief.value);
+          }
+  //Over Time................
+  if(overTime.value>0){
+  OverTime=Over_Time(overTime.value,time);
+  }
+  
+          //Chargeable..................
+          chargeable=totalAssessIncome-myReliefs;
+  
+          //Paye...........................
+          paye= PAYE(chargeable,time);
+  
+          //Net...................
+          netPay=chargeable-paye;
+  netPay+=OverTime;
+  
+  
+          
+  
+        }
+  
+        else{
+          //Year............................................
+          let time='year';
+          Returns=JSON.parse(Basic_sal(basicSalary.value,time));
+          provident=Provident3rdTier(basicSalary.value,tier3.value,time);
+          excesBonus= ExcessBonus(basicSalary.value,totalBonus.value);
+  
+          if(cashAllowance!=''){
+            Allowance= cashAllowance.value*12;
+          }
+          if(otherAllowance!=''){
+           otherAllow= otherAllowance.value*12;
+          }
+//
+          if(ssf_type[0].checked){
+            rate=ssf_type[0].value;
+          }
+          else if(ssf_type[1].checked){
+            rate=ssf_type[1].value;
+          }
+          else{
+            rate=0;
+          }
+
+          ssnit=JSON.parse(justSSF(basicSalary.value,time,rate));
+  
+          //total assessable income.......................
+        let basics=parseFloat(basicSalary.value);
+        Allowance=parseFloat(Allowance);
+        otherAllow=parseFloat(otherAllow);
+        let all=[basics,excesBonus[0],Allowance,otherAllow];
+        totalAssessIncome= Sum_up(all,time);
+  
+  
+          myReliefs=ssnit.SSF;
+          if(tier3.value>0){
+            myReliefs+=Provident3rdTier(basicSalary.value,tier3.value,time)
+          }
+          if(deductRelief.value>0){
+            myReliefs+=parseFloat(deductRelief.value);
+          }
+  //Over Time................
+  if(overTime.value>0){
+  OverTime=Over_Time(overTime.value,time);
+  
+  }
+          //chargeable income
+          chargeable=totalAssessIncome-myReliefs;
+  
+          //PAYE
+          paye=PAYE(chargeable/12,time);
+  paye*=12;
+  
+           //Net...................
+           netPay=chargeable-paye;
+  netPay+=OverTime;
+  
+         
+  
+        }
+        
+        //Output..........................................................
+        document.getElementById('employeeSSF').innerHTML=numForm.format(ssnit.SSF);
+        document.getElementById('employerSSF').innerHTML=numForm.format(ssnit.Employer_SSF);
+        document.getElementById('approvedTrustee').innerHTML=numForm.format(Returns.ApprovedTrust);
+        document.getElementById('finalTaxBonus').innerHTML=numForm.format(excesBonus[1]);
+        document.getElementById('finalTaxonoverTime').innerHTML=numForm.format(OverTime);
+        document.getElementById('ssnit1stTier').innerHTML=numForm.format(Returns.FirstTier);
+  
+        //Sum........................................
+        document.getElementById('providentFund').innerHTML=numForm.format(provident);
+        document.getElementById('excessBonus').innerHTML=numForm.format(excesBonus[0]);
+        
+        document.getElementById('totalAssessableIncome').innerHTML=numForm.format(totalAssessIncome);
+  
+        //reliefs...............
+        document.getElementById('totalReliefs').innerHTML=numForm.format(myReliefs);
+  
+        //chargeable....................
+        document.getElementById('chargeableIncome').innerHTML=numForm.format(chargeable);
+  
+        //PAYE
+        document.getElementById('payeResult').innerHTML=numForm.format(paye);
+  
+        //Net..................
+        document.getElementById('netPayresult').innerHTML=numForm.format(netPay);
+  
+  
+  
+  
+      });
+  function onDisabled(){
+        let b = basicSalary.value;
+        if(b<0||b==''){
+          disabled.disabled=true;
+          document.getElementById('go').disabled=true;
+
+  //console.log('disable');
+        }
+        else{
+          disabled.disabled=false;
+          document.getElementById('go').disabled=false
+  //console.log('Enabled');
+
+        }
+      }
+  
+      setInterval(onDisabled, 1000);
+      setInterval(Pensioneer, 500);
+   
+  </script></div>
